@@ -1,0 +1,19 @@
+  - Plate: 101
+    RawID: 1341413
+    Surface: Both
+    SaveTo: G:ECC2/IMG/Event12811/PL101
+  - Plate: 101
+    RawID: 18371
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC2/Ref/IMG/Event12811/PL101
+  - Plate: 101
+    Track: [-0.111,-0.5451,107801,43992.3]
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC2/Ref/Event15713/PL101
+  - Plate: 101
+    RawID: 9687
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC2/Ref/Ref/Event15713/PL101

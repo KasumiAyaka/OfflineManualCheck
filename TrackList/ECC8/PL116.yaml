@@ -1,0 +1,20 @@
+  - Plate: 116
+    Track: [0.1263,0.2454,109498,66196.4]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event01063/PL116
+  - Plate: 116
+    RawID: 467047
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event01063/PL116
+  - Plate: 116
+    Track: [-0.0417,0.1494,119938,83830.9]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event07756/PL116
+  - Plate: 116
+    RawID: 1327682
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event07756/PL116

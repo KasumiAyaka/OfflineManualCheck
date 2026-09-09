@@ -1,0 +1,25 @@
+  - Plate: 79
+    Track: [0.1639,-0.0718,47271.8,67642.0]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event10721/PL079"
+  - Plate: 79
+    Track: [0.0789,-0.0784,25244.1,23612.6]
+    Zone: 6
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event02808/PL079"
+  - Plate: 79
+    Track: [-0.0826,-0.3994,74792.5,27743.4]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event07104/PL079"
+  - Plate: 79
+    Track: [0.0960,0.2120,74765.5,14462.4]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event07504/PL079"
+  - Plate: 79
+    Track: [0.3479,0.3115,125823.1,41024.1]
+    Zone: 5
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event00184/PL079"

@@ -1,0 +1,23 @@
+  - Plate: 106
+    Track: [0.0261,0.0343,80314.2,65612.1]
+    Zone: 2
+    Surface: Both
+    SaveTo: "G:ECC9/Ref/Event10758/PL106"
+  - Plate: 106
+    RawID: 9016085
+    Surface: Both
+    SaveTo: "G:ECC9/IMG/Event12406/PL106"
+  - Plate: 106
+    RawID: 11058195
+    Surface: Both
+    SaveTo: "G:ECC9/IMG/Event13736/PL106"
+  - Plate: 106
+    Track: [0.2584,0.4219,46949.4,9164.4]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC9/Ref/Event14098/PL106"
+  - Plate: 106
+    Track: [0.2606,-0.2595,102821.6,12845.5]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC9/Ref/Event01036/PL106"

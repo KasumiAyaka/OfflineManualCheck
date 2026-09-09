@@ -1,0 +1,9 @@
+  - Plate: 127
+    RawID: 9860290
+    Surface: Both
+    SaveTo: "G:ECC7/IMG/Event07205/PL127"
+  - Plate: 127
+    Track: [0.3308,0.1796,76076.9,28758.1]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event08825/PL127"

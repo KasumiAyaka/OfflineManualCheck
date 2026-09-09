@@ -1,0 +1,32 @@
+  - Plate: 34
+    RawID: 2712929
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event12220/PL034"
+  - Plate: 34
+    RawID: 56684
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event14931/PL034"
+  - Plate: 34
+    RawID: 3458906
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event03692/PL034"
+  - Plate: 34
+    Track: [0.0063,-0.4180,86809.8,72269.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC3/Ref/Event04926/PL034"
+  - Plate: 34
+    Track: [-0.4589,0.3735,54768.3,21080.9]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC3/Ref/Event17788/PL034"
+  - Plate: 34
+    Track: [0.8334,-0.0814,38817.3,62057.5]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC3/Ref/Event18745/PL034"
+  - Plate: 34
+    Track: [0.0787,0.0519,79736.1,70683.1]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC3/Ref/Event04376/PL034"

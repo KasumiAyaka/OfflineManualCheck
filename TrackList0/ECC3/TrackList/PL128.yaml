@@ -1,0 +1,18 @@
+  - Plate: 128
+    RawID: 6289257
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event10242/PL128"
+  - Plate: 128
+    Track: [0.0002,0.3474,54495.7,15465.2]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC3/Ref/Event13208/PL128"
+  - Plate: 128
+    RawID: 3137026
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event04889/PL128"
+  - Plate: 128
+    Track: [0.1415,-0.0544,68227.1,23237.5]
+    Zone: 6
+    Surface: Both
+    SaveTo: "G:ECC3/Ref/Event08353/PL128"

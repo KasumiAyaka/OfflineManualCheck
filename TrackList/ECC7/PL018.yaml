@@ -1,0 +1,9 @@
+  - Plate: 18
+    RawID: 10789151
+    Surface: Both
+    SaveTo: G:ECC7/IMG/Event03613/PL018
+  - Plate: 18
+    RawID: 1056629
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC7/Ref/IMG/Event03613/PL018

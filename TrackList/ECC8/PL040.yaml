@@ -1,0 +1,87 @@
+  - Plate: 40
+    Track: [0.3372,0.2,95883.7,71303.3]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event01095/PL040
+  - Plate: 40
+    RawID: 1844912
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event01095/PL040
+  - Plate: 40
+    RawID: 991765
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event02711/PL040
+  - Plate: 40
+    RawID: 1925946
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event02711/PL040
+  - Plate: 40
+    RawID: 4100972
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event10627/PL040
+  - Plate: 40
+    RawID: 1615542
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event10627/PL040
+  - Plate: 40
+    Track: [0.1902,-0.1495,112529,20585.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event10818/PL040
+  - Plate: 40
+    RawID: 310371
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event10818/PL040
+  - Plate: 40
+    RawID: 7717142
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event06038/PL040
+  - Plate: 40
+    RawID: 1372218
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event06038/PL040
+  - Plate: 40
+    Track: [0.325,-0.0366,79303.6,41418.9]
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event12302/PL040
+  - Plate: 40
+    RawID: 34481
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event12302/PL040
+  - Plate: 40
+    Track: [-0.1986,0.205,75376.8,39776.2]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event07036/PL040
+  - Plate: 40
+    RawID: 2105549
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event07036/PL040
+  - Plate: 40
+    Track: [0.6733,-0.4318,55405.9,20980.9]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event11435/PL040
+  - Plate: 40
+    RawID: 1724925
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event11435/PL040
+  - Plate: 40
+    Track: [-0.0574,-0.0796,65323.8,36133.6]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event09365/PL040
+  - Plate: 40
+    RawID: 1527289
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event09365/PL040

@@ -1,0 +1,15 @@
+  - Plate: 36
+    Track: [-0.0825,-0.1814,56238.1,8058.8]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC2/Ref/Event10360/PL036"
+  - Plate: 36
+    Track: [0.1713,0.1941,65664.4,55144.9]
+    Zone: 1
+    Surface: Both
+    SaveTo: "G:ECC2/Ref/Event12688/PL036"
+  - Plate: 36
+    Track: [0.0962,-0.1324,24026.9,22101.2]
+    Zone: 6
+    Surface: Both
+    SaveTo: "G:ECC2/Ref/Event09042/PL036"

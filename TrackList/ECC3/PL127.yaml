@@ -1,0 +1,20 @@
+  - Plate: 127
+    Track: [-0.0017,0.3482,53791.4,12383.2]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event13208/PL127
+  - Plate: 127
+    RawID: 150700
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event13208/PL127
+  - Plate: 127
+    Track: [0.1411,-0.0545,67221.3,21329.3]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event08353/PL127
+  - Plate: 127
+    RawID: 1047077
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event08353/PL127

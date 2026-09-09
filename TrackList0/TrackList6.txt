@@ -1,0 +1,361 @@
+  - Plate:  52
+    Track: 331240
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01414/PL052"
+  - Plate:  53
+    Track: [0.2572 -0.3106 62782.6 9078.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01414/PL053"
+  - Plate:  54
+    Track: [0.2578 -0.3093 60396.0 8385.1]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01414/PL054"
+  - Plate:  55
+    Track: [0.2558 -0.3114 61974.4 9596.1]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01414/PL055"
+  - Plate:  52
+    Track: 331240
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01425/PL052"
+  - Plate:  53
+    Track: [0.2572 -0.3106 62782.6 9078.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01425/PL053"
+  - Plate:  54
+    Track: [0.2578 -0.3093 60396.0 8385.1]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01425/PL054"
+  - Plate:  55
+    Track: [0.2558 -0.3114 61974.4 9596.1]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event01425/PL055"
+  - Plate:  34
+    Track: 7685173
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00189/PL034"
+  - Plate:  35
+    Track: [0.2102 -0.3902 75967.1 31817.3]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00189/PL035"
+  - Plate:  36
+    Track: [0.2087 -0.3922 77814.3 37854.1]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00189/PL036"
+  - Plate:  37
+    Track: [0.2098 -0.3902 75455.1 32661.6]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00189/PL037"
+  - Plate:  60
+    Track: 1143385
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00193/PL060"
+  - Plate:  61
+    Track: [0.0430 0.3666 35820.4 51535.5]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00193/PL061"
+  - Plate:  62
+    Track: [0.0415 0.3669 36665.5 52052.2]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00193/PL062"
+  - Plate:  63
+    Track: [0.0438 0.3657 36870.2 51054.8]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00193/PL063"
+  - Plate:  50
+    Track: 2944307
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00228/PL050"
+  - Plate:  51
+    Track: [0.0004 -0.3350 43384.8 63757.9]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00228/PL051"
+  - Plate:  52
+    Track: [-0.0015 -0.3351 43797.3 64594.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00228/PL052"
+  - Plate:  53
+    Track: [-0.0006 -0.3353 46634.8 66614.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00228/PL053"
+  - Plate:  54
+    Track: 2844041
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00234/PL054"
+  - Plate:  55
+    Track: [0.1316 0.0368 4768.8 29452.0]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00234/PL055"
+  - Plate:  56
+    Track: [0.1319 0.0363 124036.3 27445.1]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00234/PL056"
+  - Plate:  57
+    Track: [0.1315 0.0374 124504.2 29846.6]
+    Zone: 3
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00234/PL057"
+  - Plate: 104
+    Track: 3821594
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00235/PL104"
+  - Plate: 105
+    Track: [-0.0685 -0.1520 20577.8 60105.8]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00235/PL105"
+  - Plate: 106
+    Track: [-0.0684 -0.1521 20942.1 62610.8]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00235/PL106"
+  - Plate: 107
+    Track: [-0.0665 -0.1525 19016.9 59075.0]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00235/PL107"
+  - Plate: 120
+    Track: 6536311
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00309/PL120"
+  - Plate: 121
+    Track: [-0.0563 -0.4314 57638.1 14693.3]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00309/PL121"
+  - Plate: 122
+    Track: [-0.0599 -0.4315 61413.6 15329.3]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00309/PL122"
+  - Plate: 123
+    Track: [-0.0592 -0.4324 56216.8 13181.8]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00309/PL123"
+  - Plate:  54
+    Track: 1656914
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00328/PL054"
+  - Plate:  55
+    Track: [0.2209 -0.5498 122358.7 82980.0]
+    Zone: 1
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00328/PL055"
+  - Plate:  56
+    Track: [0.2200 -0.5495 120343.4 82150.2]
+    Zone: 1
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00328/PL056"
+  - Plate:  57
+    Track: [0.2219 -0.5486 121873.8 84610.0]
+    Zone: 1
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00328/PL057"
+  - Plate:  56
+    Track: 2379536
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00490/PL056"
+  - Plate:  57
+    Track: [-0.4855 0.1679 84666.3 6539.9]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00490/PL057"
+  - Plate:  58
+    Track: [-0.4845 0.1672 84201.2 82306.3]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00490/PL058"
+  - Plate:  59
+    Track: [-0.4851 0.1654 85704.1 83896.1]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00490/PL059"
+  - Plate: 126
+    Track: 1601758
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00592/PL126"
+  - Plate: 127
+    Track: [-0.0802 0.2460 47640.8 84258.1]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00592/PL127"
+  - Plate: 128
+    Track: [-0.0797 0.2465 49702.3 85064.9]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00592/PL128"
+  - Plate: 129
+    Track: [-0.0773 0.2468 49429.4 83113.3]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00592/PL129"
+  - Plate:  28
+    Track: 6811013
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00599/PL028"
+  - Plate:  29
+    Track: [-0.0035 -0.4978 34833.0 30703.7]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00599/PL029"
+  - Plate:  30
+    Track: [-0.0003 -0.5009 33946.2 30255.5]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00599/PL030"
+  - Plate:  31
+    Track: [-0.0048 -0.4968 35318.8 33001.4]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00599/PL031"
+  - Plate: 102
+    Track: 22761
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00616/PL102"
+  - Plate: 103
+    Track: [-0.2311 -0.0611 11693.7 50308.2]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00616/PL103"
+  - Plate: 104
+    Track: [-0.2305 -0.0616 13389.3 48115.5]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00616/PL104"
+  - Plate: 105
+    Track: [-0.2304 -0.0601 15138.5 48367.8]
+    Zone: 2
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00616/PL105"
+  - Plate:  64
+    Track: 3395389
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00647/PL064"
+  - Plate:  65
+    Track: [0.0593 0.4891 86805.4 55912.4]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00647/PL065"
+  - Plate:  66
+    Track: [0.0580 0.4883 89703.6 53891.2]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00647/PL066"
+  - Plate:  67
+    Track: [0.0620 0.4893 91070.1 54814.9]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00647/PL067"
+  - Plate: 122
+    Track: 4611410
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00702/PL122"
+  - Plate: 123
+    Track: [0.0507 -0.0446 77086.1 15908.9]
+    Zone: 5
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00702/PL123"
+  - Plate: 124
+    Track: [0.0501 -0.0452 77443.5 17838.7]
+    Zone: 5
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00702/PL124"
+  - Plate: 125
+    Track: [0.0511 -0.0441 75340.0 14424.8]
+    Zone: 5
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00702/PL125"
+  - Plate:  20
+    Track: 5535711
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00079/PL020"
+  - Plate:  21
+    Track: [0.2296 0.0015 48003.2 39740.2]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00079/PL021"
+  - Plate:  22
+    Track: [0.2295 0.0027 48352.3 40505.2]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00079/PL022"
+  - Plate:  23
+    Track: [0.2299 0.0023 47280.0 40919.6]
+    Zone: 6
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00079/PL023"
+  - Plate:  94
+    Track: 3737294
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00796/PL094"
+  - Plate:  95
+    Track: [-0.1708 -0.2101 17891.0 29402.9]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00796/PL095"
+  - Plate:  96
+    Track: [-0.1678 -0.2125 18946.3 27713.5]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00796/PL096"
+  - Plate:  97
+    Track: [-0.1683 -0.2118 18960.0 28195.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00796/PL097"
+  - Plate:  42
+    Track: 731992
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00845/PL042"
+  - Plate:  43
+    Track: [-0.3216 0.1324 79467.9 78184.0]
+    Zone: 1
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00845/PL043"
+  - Plate:  44
+    Track: [-0.3216 0.1335 83061.9 79824.9]
+    Zone: 1
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00845/PL044"
+  - Plate:  45
+    Track: [-0.3206 0.1334 83357.7 77400.3]
+    Zone: 1
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00845/PL045"
+  - Plate: 114
+    Track: 4139627
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00096/PL114"
+  - Plate: 115
+    Track: [0.1605 0.3951 31414.3 20465.1]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00096/PL115"
+  - Plate: 116
+    Track: [0.1601 0.3960 32960.1 18291.0]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00096/PL116"
+  - Plate: 117
+    Track: [0.1653 0.3936 33689.6 20439.2]
+    Zone: 4
+    Surface: Both
+    SaveTo: "K:/NINJA/E71a/ManualCheck/ECC6/IMG/Event00096/PL117"

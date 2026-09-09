@@ -1,0 +1,10 @@
+  - Plate: 132
+    Track: [0.4623,0.2962,26214.1,63209.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event06188/PL132
+  - Plate: 132
+    RawID: 250449
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event06188/PL132

@@ -1,0 +1,180 @@
+  - Plate: 125
+    Track: [-0.1059,-0.1004,53187.0,60941.7]
+    Zone: 2
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event10784/PL125"
+  - Plate: 125
+    Track: [-0.1000,0.0359,48509.2,78842.8]
+    Zone: 2
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event11243/PL125"
+  - Plate: 125
+    Track: [0.1403,0.0051,72641.8,25911.5]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event01383/PL125"
+  - Plate: 125
+    Track: [-0.0479,-0.0814,120536.8,30018.5]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event08492/PL125"
+  - Plate: 125
+    RawID: 834170
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event10681/PL125"
+  - Plate: 125
+    RawID: 489846
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event10841/PL125"
+  - Plate: 125
+    RawID: 667981
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event10967/PL125"
+  - Plate: 125
+    RawID: 3167532
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event11589/PL125"
+  - Plate: 125
+    RawID: 572807
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event11777/PL125"
+  - Plate: 125
+    RawID: 561372
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event12242/PL125"
+  - Plate: 125
+    RawID: 524967
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event00127/PL125"
+  - Plate: 125
+    RawID: 4306371
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event01277/PL125"
+  - Plate: 125
+    RawID: 6304462
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event01454/PL125"
+  - Plate: 125
+    RawID: 511176
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event01526/PL125"
+  - Plate: 125
+    RawID: 1497065
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event01604/PL125"
+  - Plate: 125
+    RawID: 563311
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event01655/PL125"
+  - Plate: 125
+    RawID: 1350319
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event02350/PL125"
+  - Plate: 125
+    RawID: 821513
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event02597/PL125"
+  - Plate: 125
+    RawID: 6339399
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event02731/PL125"
+  - Plate: 125
+    RawID: 1560833
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event02875/PL125"
+  - Plate: 125
+    RawID: 577366
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event02910/PL125"
+  - Plate: 125
+    RawID: 1630091
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event02940/PL125"
+  - Plate: 125
+    RawID: 1570162
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event02992/PL125"
+  - Plate: 125
+    RawID: 1671704
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event03180/PL125"
+  - Plate: 125
+    RawID: 926482
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event03309/PL125"
+  - Plate: 125
+    RawID: 9646320
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event03325/PL125"
+  - Plate: 125
+    RawID: 6303540
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event03593/PL125"
+  - Plate: 125
+    RawID: 261273
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event03753/PL125"
+  - Plate: 125
+    RawID: 261273
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event03802/PL125"
+  - Plate: 125
+    RawID: 1334944
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event04059/PL125"
+  - Plate: 125
+    RawID: 5503061
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event04824/PL125"
+  - Plate: 125
+    RawID: 823133
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event00488/PL125"
+  - Plate: 125
+    RawID: 1338763
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event05596/PL125"
+  - Plate: 125
+    RawID: 550585
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event06490/PL125"
+  - Plate: 125
+    RawID: 702388
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event06952/PL125"
+  - Plate: 125
+    RawID: 774630
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07024/PL125"
+  - Plate: 125
+    RawID: 4318919
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07255/PL125"
+  - Plate: 125
+    RawID: 450682
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07342/PL125"
+  - Plate: 125
+    RawID: 5304939
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07388/PL125"
+  - Plate: 125
+    RawID: 511081
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07396/PL125"
+  - Plate: 125
+    RawID: 564855
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07704/PL125"
+  - Plate: 125
+    RawID: 4280988
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07770/PL125"
+  - Plate: 125
+    RawID: 1492916
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event08089/PL125"
+  - Plate: 125
+    RawID: 3405296
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event00892/PL125"

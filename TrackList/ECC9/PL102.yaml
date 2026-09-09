@@ -1,0 +1,10 @@
+  - Plate: 102
+    Track: [0.1268,-0.2443,17597.5,12200.8]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Event09653/PL102
+  - Plate: 102
+    RawID: 166489
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Ref/Event09653/PL102

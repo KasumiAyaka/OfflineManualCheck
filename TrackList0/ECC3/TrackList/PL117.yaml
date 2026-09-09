@@ -1,0 +1,17 @@
+  - Plate: 117
+    Track: [0.0701,-0.0376,32151.9,60688.9]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC3/Ref/Event18479/PL117"
+  - Plate: 117
+    RawID: 312777
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event03242/PL117"
+  - Plate: 117
+    RawID: 553129
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event04331/PL117"
+  - Plate: 117
+    RawID: 5914905
+    Surface: Both
+    SaveTo: "G:ECC3/IMG/Event04906/PL117"

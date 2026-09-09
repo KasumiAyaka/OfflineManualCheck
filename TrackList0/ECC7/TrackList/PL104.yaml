@@ -1,0 +1,9 @@
+  - Plate: 104
+    RawID: 12190872
+    Surface: Both
+    SaveTo: "G:ECC7/IMG/Event11186/PL104"
+  - Plate: 104
+    Track: [-0.0685,-0.1293,53750.0,40619.5]
+    Zone: 6
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event02399/PL104"

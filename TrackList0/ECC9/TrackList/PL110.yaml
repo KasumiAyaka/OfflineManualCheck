@@ -1,0 +1,22 @@
+  - Plate: 110
+    RawID: 270749
+    Surface: Both
+    SaveTo: "G:ECC9/IMG/Event01861/PL110"
+  - Plate: 110
+    RawID: 565328
+    Surface: Both
+    SaveTo: "G:ECC9/IMG/Event03451/PL110"
+  - Plate: 110
+    RawID: 8738205
+    Surface: Both
+    SaveTo: "G:ECC9/IMG/Event09814/PL110"
+  - Plate: 110
+    Track: [0.1238,-0.0098,73757.6,17311.0]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC9/Ref/Event12450/PL110"
+  - Plate: 110
+    Track: [0.0988,-0.1255,104479.1,50077.0]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC9/Ref/Event02084/PL110"

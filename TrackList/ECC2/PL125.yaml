@@ -1,0 +1,9 @@
+  - Plate: 125
+    RawID: 9219191
+    Surface: Both
+    SaveTo: G:ECC2/IMG/Event10125/PL125
+  - Plate: 125
+    RawID: 1009498
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC2/Ref/IMG/Event10125/PL125
