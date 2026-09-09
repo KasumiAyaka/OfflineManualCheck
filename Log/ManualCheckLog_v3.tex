@@ -1,0 +1,127 @@
+\documentclass[11pt,dvips]{jreport}    
+%\documentclass{ujarticle} 
+\usepackage{amsmath,amssymb} 
+%\documentclass[11pt,dvips,lines=50]{jsarticle}
+\usepackage{newtxtext,newtxmath}
+%\numberwithin{equation}{section}
+%\usepackage[hiresbb]{graphicx}
+\usepackage{graphicx}
+%\usepackage{figure}
+%\usepackage[dvipdfmx]{graphicx}%エラーなしで画像が出力されなかったので{graphix}にした
+\usepackage{wrapfig}
+\usepackage{geometry}
+\geometry{left=18mm,right=10mm,top=10mm,bottom=5mm}
+\setlength{\textheight}{32cm}
+%\renewcommand{\bibname}{参考文献}
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\usepackage{comment}
+\usepackage{ascmac}
+%\usepackage{fancybx}%入ってなかった
+\usepackage{caption} %キャプションの文字サイズを変えたい
+\usepackage[bold]{otf}
+\usepackage{tikz-feynhand}
+\usepackage[misc,geometry,weather,clock]{ifsym}
+\usepackage{siunitx}
+\usepackage{placeins}
+
+\captionsetup{compatibility=false}
+\def\MARU#1{{\rm\ooalign{\hfil\lower.168ex\hbox{#1}\hfil \crcr\mathhexbox20D}}}
+
+
+
+
+% My commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\PL}[4]{
+\begin{flushright}
+{\LARGE\underline{\ 2026\hspace{5pt} /\hspace{1.5cm}/\hspace{1.5cm}}}\\
+\vspace{10pt}
+{\LARGE\underline{\ Name:  \hspace{3cm}}}\\
+\end{flushright}
+\vspace{-27mm}
+\begin{flushleft}
+\hspace{-20pt}{\large{\PaperPortrait \ Manual Check log (E71a Central Area)}}\\
+\vspace{10pt}
+{\LARGE\underline{\ Kdrive \ ECC#1  \  PL#2}}\\
+\end{flushleft}%
+\vspace{0.7cm}
+#3
+#4
+\FreeSpace
+\FloatBarrier
+\newpage
+}
+
+%%event
+\newcommand{\Events}[1]{
+\vspace{-1cm}
+\begin{center}
+    			\begin{tabular}{ |p{5mm} |p{15mm}|p{26mm}|p{24mm}|p{24mm}|p{20mm}|p{40mm}|} \hline
+				 &Event &film左下角に移動&オイル挿し &lens表面合わせ &移動速度調整&Comment \\
+				\hline \hline
+				 #1
+			\end{tabular}
+ 	\end{center}
+\FloatBarrier
+\newpage
+}
+
+%% Area
+\newcommand{\AreaList}[1]{%   コマンド定義
+1. フィルムの位置合わせ\\
+\qquad 手順：SetPlateを編集\ra film左下角に移動\ra 三か所にオイル\ra lens表面合わせ\ra 移動速度調整
+ \begin{center}
+    			\begin{tabular}{ |c|c|c|} \hline
+				Area& Check&Comment \\
+				\hline \hline
+				 #1
+			\end{tabular}
+ 	\end{center}
+}%
+
+\newcommand{\Area}[1]{
+	 #1&\hspace{1cm}&\hspace{15cm}  \rule[0mm]{0mm}{0.9mm} \\ \hline
+}
+
+
+
+\newcommand{\EventList}[1]{
+2. スキャン(Captureをクリックすると始まる)\\
+\qquad 手順：オイル挿し\ra lensの位置合わせ\ra　移動速度調整\ra OKをクリック\\
+\vspace{-0.5cm}
+\begin{center}
+    			\begin{tabular}[h]{ |c|c|r|c|c|} \hline%{ |p{5mm} |p{15mm}|p{26mm}|p{24mm}|p{24mm}|p{20mm}|p{40mm}|} \hline
+				 &Area &Event &check&Comment\hspace{11cm} \\
+				\hline \hline
+				 #1
+			\end{tabular}
+ 	\end{center}
+}
+
+\newcommand{\Event}[3]{
+				#2& #3& #1 & & \rule[0mm]{0mm}{0.9mm} \\ \hline
+}
+
+\newlength{\FreeSpaceHt}
+\newlength{\FreeSpaceOverhead}
+\setlength{\FreeSpaceOverhead}{7cm}% itembox自体の罫線・タイトル分の余白(実測して調整済み)
+\newcommand{\FreeSpace}{%
+	\vspace{0.5cm}%
+	\setlength{\FreeSpaceHt}{\dimexpr\pagegoal-\pagetotal-\FreeSpaceOverhead\relax}%
+	\ifdim\FreeSpaceHt<0pt \setlength{\FreeSpaceHt}{0pt}\fi
+	\noindent\begin{itembox}[l]{\Large{Memo}}
+		\rule{0pt}{\FreeSpaceHt}
+	\end{itembox}
+}
+\newcommand{\ra}{$\rightarrow$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\thispagestyle{empty}
+\input{./Subfiles/btrklist9_conv}
+%\input{./Subfiles/TrackList_ECC6_re}
+
+
+
+\end{document}

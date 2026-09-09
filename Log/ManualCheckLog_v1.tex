@@ -1,0 +1,293 @@
+\documentclass[dvips]{jreport}    
+%\documentclass{ujarticle} 
+\usepackage{amsmath,amssymb} 
+%\documentclass[11pt,dvips,lines=50]{jsarticle}
+\usepackage{newtxtext,newtxmath}
+%\numberwithin{equation}{section}
+%\usepackage[hiresbb]{graphicx}
+\usepackage{graphicx}
+%\usepackage{figure}
+%\usepackage[dvipdfmx]{graphicx}%エラーなしで画像が出力されなかったので{graphix}にした
+\usepackage{wrapfig}
+\usepackage{geometry}
+\geometry{left=18mm,right=10mm,top=10mm,bottom=5mm}
+\setlength{\textheight}{32cm}
+%\renewcommand{\bibname}{参考文献}
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\usepackage{comment}
+\usepackage{ascmac}
+%\usepackage{fancybx}%入ってなかった
+\usepackage{caption} %キャプションの文字サイズを変えたい
+\usepackage[bold]{otf}
+\usepackage{tikz-feynhand}
+\usepackage[misc,geometry,weather,clock]{ifsym}
+\usepackage{siunitx}
+\usepackage{placeins}
+
+\captionsetup{compatibility=false}
+\def\MARU#1{{\rm\ooalign{\hfil\lower.168ex\hbox{#1}\hfil \crcr\mathhexbox20D}}}
+
+
+
+
+% My commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\PL}[4]{
+\begin{flushleft}
+{\Large\underline{\PaperPortrait \ Manual Check log (E71a Central Area)}}\\
+\end{flushleft}%
+\vspace{-12mm}
+\begin{flushright}
+{\LARGE\underline{\ ECC#1  \  PL#2 \quad 2026/\qquad / \qquad}}\\
+\end{flushright}
+#3\\
+#4
+\FloatBarrier
+\newpage
+}
+
+\newcommand{\Events}[1]{
+\begin{table}[h]
+%\vspace{-0.7cm}
+% 	\caption[R]{Scan Area}
+	\begin{center}
+%		\setlength{\tabcolsep}{10pt}
+    			\begin{tabular}{ |p{5mm} |p{15mm}|p{26mm}|p{24mm}|p{24mm}|p{20mm}|p{40mm}|} \hline
+				 &Event &film左下角に移動&オイル挿し &lens表面合わせ &移動速度調整&Comment \\
+				\hline \hline
+				 #1
+			\end{tabular}
+    		\label{R}
+ 	\end{center}
+\end{table}%
+\FloatBarrier
+\newpage
+}
+
+
+\newcommand{\AreaList}[1]{%   コマンド定義
+フィルムの位置合わせ
+ \begin{table}[h]
+%\vspace{-0.7cm}
+% 	\caption[R]{Scan Area}
+	\begin{center}
+%		\setlength{\tabcolsep}{10pt}
+    			\begin{tabular}{ |p{10mm}|p{22mm}|p{26mm}|p{24mm}|p{24mm}|p{20mm}|p{30mm}|} \hline
+				Area&SetPlateを編集&film左下角に移動 &三か所にオイル &lens表面合わせ &移動速度調整&Comment \\
+				\hline \hline
+				 #1
+			\end{tabular}
+    		\label{R}
+ 	\end{center}
+\end{table}%
+}%
+
+\newcommand{\Area}[1]{
+	 { \centering #1}& & & & & & \rule[0mm]{0mm}{0.7mm} \\ \hline
+}
+
+
+
+\newcommand{\EventList}[1]{
+スキャン(Captureをクリックすると始まる)
+\begin{table}[h]
+%\vspace{-0.7cm}
+% 	\caption[R]{Scan Area}
+	\begin{center}
+%		\setlength{\tabcolsep}{10pt}
+    			\begin{tabular}{ |p{5mm} |p{15mm}|p{26mm}|p{24mm}|p{24mm}|p{20mm}|p{40mm}|} \hline
+				 &Event &film左下角に移動&オイル挿し &lens表面合わせ &移動速度調整&Comment \\
+				\hline \hline
+				 #1
+			\end{tabular}
+    		\label{R}
+ 	\end{center}
+\end{table}%
+}
+
+\newcommand{\Event}[2]{
+				#2 & #1 & & & & & \rule[0mm]{0mm}{0.7mm} \\ \hline
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\thispagestyle{empty}
+\input{TrackList}
+
+
+\begin{comment}
+\PL{6}{025}{
+	\AreaList{
+		\Area{2}
+		\Area{3}
+		\Area{5}
+		\Area{6}
+	}	
+}{
+	\EventList{
+		\Event{5573}
+		\Event{634877}
+		\Event{566}
+		\Event{256036}
+		\Event{7766}
+		\Event{189993}
+		\Event{10810}
+		\Event{455592}
+		\Event{11863}
+		\Event{479279}
+		\Event{13423}
+		\Event{203924}
+		\Event{3948}
+		\Event{234257}
+		\Event{7803}
+		\Event{417875}
+		\Event{8497}
+		\Event{20992}
+		\Event{9344}
+		\Event{1269725}
+		\Event{9456}
+		\Event{188292}
+		\Event{5573}
+		\Event{634877}
+		\Event{566}
+		\Event{511182}
+		\Event{7766}
+		\Event{605769}
+		\Event{566}
+		\Event{256505}
+		\Event{566}
+		\Event{511182}
+		
+	}
+}
+%
+
+
+
+\begin{table}[h]
+%\vspace{-0.7cm}
+% 	\caption[R]{ノイズの値}
+	\begin{center}
+%		\setlength{\tabcolsep}{10pt}
+    			\begin{tabular}{ |p{10mm}|p{8mm}|p{12mm}|p{7mm}|p{10mm}|p{8mm}|p{8mm}|p{8mm}|p{8mm}|p{6mm}|p{6mm}|p{6mm}|p{6mm}|p{22mm}|} \hline
+& & & & & \multicolumn{4}{|c|}{hole}&\multicolumn{2}{c|}{face}&\multicolumn{2}{c|}{FileCheck} &Comment \\
+\cline{6-13}
+Date & Time & Name & pl & Event & 1&2&3&4&1&2&{\small Graph}&Size& (errorなど) \\ \hline
+\quad {\LARGE /} & &  & & & & & & &&　&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &&　&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &&　&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\quad {\LARGE /} & &  & & & & & & &　&&&& \rule[0mm]{0mm}{10mm} \\ \hline
+\end{tabular}
+    		\label{R}
+ 	\end{center}
+\end{table}%
+
+\end{comment}
+
+
+
+  	  		   
+
+
+
+
+
+
+
+
+\begin{comment}
+%\begin{itembox}[l]{Memo}
+%\vspace{7cm}
+%\end{itembox}%
+ \begin{figure}[h]
+ \vspace{-1.0cm}
+	\centering
+	\begin{tikzpicture} %tikzpicture環境
+		\begin{feynhand}    %feynhand環境
+			\vertex (a) at (-8.5,4);
+			\vertex (b) at (9,4);
+			\vertex (c) at (-8.5,-6);
+			\vertex (d) at (9,-6);
+			\vertex (e) at (-8.2,4);
+			\vertex (f) at (-5.8,4);
+			\propag [plain] (a) to (e);
+			\propag [plain] (f) to (b);
+			\propag [plain] (b) to(d);
+			\propag [plain] (c) to (d);
+			\propag [plain] (c) to (a);
+			\node at (-7,4) {\Large \PaperPortrait \hspace{0.1cm} {\bfseries Memo}};
+		\end{feynhand}
+	\end{tikzpicture}
+\end{figure}
+\end{comment}
+
+
+
+%表-----------------------------------------------------------
+%\begin{table}[h]
+% 	\caption[R]{ノイズの値}
+%	\begin{center}
+%		\setlength{\tabcolsep}{10pt}
+ % 		\footnotesize
+%    			\begin{tabular}{ |c|c|c| } \hline
+%  	  		  a & b & c   \\ \hline
+%    			\end{tabular}
+%    		\label{R}
+% 	\end{center}
+%\end{table}%
+%--------------------------------------------------------------
+
+
+%図-そのまま----------------------------------------------------
+%\begin{figure}[h]
+%    \includegraphics[keepaspectratio  hight=5cm]{1.png}
+%    \caption{回路図}
+%    \label{fig:1}
+%\end{figure}%
+%--------------------------------------------------------------
+%\begin{wrapfigure} {r} {55mm}
+% % \begin{center}
+%    \includegraphics[bb = 0 0 247 231,width=6cm]{GM.png}
+%    \caption{解の場合分け}
+%    \label{fig:GM}
+%  \end{center}
+%\end{wrapfigure}%
+
+
+
+%図--縦に並べる-------------------------------------------------
+%\begin{figure}[t]
+%  \begin{minipage}[b]{0.5\linewidth}
+%    \centering
+ %   \includegraphics[bb = 0 0 456 215, width=7cm]{2.png}
+%    \subcaption{入力電圧と出力電圧の波形}\label{ラベル1}
+%  \end{minipage}
+%  \begin{minipage}[b]{0.45\linewidth}
+%    \centering
+%    \includegraphics[bb = 0 0 456 215, width=7cm]{3.png}
+%    \subcaption{周波数に対する特性}\label{ラベル2}
+%  \end{minipage}
+%  \caption{波形}\label{ラベル}
+%\end{figure}
+%-------------------------------------------------------------
+\end{document}

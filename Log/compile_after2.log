@@ -1,0 +1,1019 @@
+This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.sjis) (TeX Live 2022) (preloaded format=platex)
+ restricted \write18 enabled.
+entering extended mode
+(./ManualCheckLog_v5.tex
+pLaTeX2e <2021-11-15> (based on LaTeX2e <2021-11-15> patch level 1)
+L3 programming layer <2022-04-29>
+(c:/Program Files/texlive/2022/texmf-dist/tex/platex/base/jreport.cls
+Document Class: jreport 2020/09/30 v1.8f Standard pLaTeX class
+(c:/Program Files/texlive/2022/texmf-dist/tex/platex/base/jsize10.clo))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/newtxtext.sty
+`newtxtext' v1.71, 2022/02/28 Text macros taking advantage of TeXGyre Termes an
+d its extensions (msharpe)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/base/textcomp.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/xstring/xstring.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/xstring/xstring.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/kastrup/binhex.tex)
+ntx@otftextfalse
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/fontaxes/fontaxes.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.71, 2022/01/16 Math macros based originally on txfonts (msharpe)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (c:/Program Files/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/graphics-def/dvips.def)))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/wrapfig/wrapfig.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+) (c:/Program Files/texlive/2022/texmf-dist/tex/latex/caption/subcaption.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/ascmac/ascmac.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/ascmac/tascmac.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/platex/japanese-otf/otf.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/platex/japanese-otf/ajmacros.sty)
+) (./tikz-feynhand.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-com
+mon.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-com
+mon-lists.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-lat
+ex.def)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code
+.tex (c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/pgf.revision.tex
+)))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.co
+de.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.cod
+e.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeysfilt
+ered.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dv
+ips.def
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-co
+mmon-postscript.def)))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssof
+tpath.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyspro
+tocol.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.co
+de.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code
+.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code
+.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.co
+de.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.basic.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.trigonometric.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.random.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.comparison.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.base.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.round.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.misc.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions
+.integerarithmetics.code.tex)))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfloat.cod
+e.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoi
+nts.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepat
+hconstruct.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepat
+husage.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoresco
+pes.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregra
+phicstate.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretra
+nsformations.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequi
+ck.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobj
+ects.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepat
+hprocessing.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearr
+ows.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoresha
+de.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreima
+ge.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreext
+ernal.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelay
+ers.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretra
+nsparency.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepat
+terns.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf
+.code.tex)))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleshap
+es.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot
+.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-v
+ersion-0-65.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-v
+ersion-1-18.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.cod
+e.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgffor.code
+.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+)))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/ti
+kz.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryp
+lothandlers.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematr
+ix.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarytopaths.code.tex)))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgfopts/pgfopts.sty)
+(./tikzlibraryfeynhand.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibrarya
+rrows.meta.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarycalc.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarydecorations.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduledeco
+rations.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarydecorations.markings.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations
+/pgflibrarydecorations.markings.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarydecorations.pathmorphing.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations
+/pgflibrarydecorations.pathmorphing.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarydecorations.pathreplacing.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations
+/pgflibrarydecorations.pathreplacing.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/pgf/frontendlayer/libraries
+/tikzlibraryexternal.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzexternalshared.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarypatterns.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryp
+atterns.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibrarypositioning.code.tex)
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/tikzlibraryshapes.geometric.code.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/libraries/shapes/pgfl
+ibraryshapes.geometric.code.tex)) (./tikzfeynhand.keys.code.tex))
+(c:/Program Files/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/li
+braries/graphs/tikzlibrarygraphs.code.tex)) (./ifsym.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/tools/calc.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/translations/translations.s
+ty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2
+e.sty (c:/Program Files/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-dvips.d
+ef))) (c:/Program Files/texlive/2022/texmf-dist/tex/latex/tools/array.sty))
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/placeins/placeins.sty)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd)
+(./ManualCheckLog_v5.aux
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+
+LaTeX Warning: Label `R' multiply defined.
+
+) (c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/omlntxmi.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/untxexa.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/lmxntxexx.fd)
+*geometry* detected driver: dvips
+
+Package tikz-feynhand Warning: Consider loading TikZ-Feynhand with \usepackage[
+compat=1.1.0]{tikz-feynhand} so that you can be warned if TikZ-Feynhand changes
+. on input line 132.
+
+
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/translations/translations-b
+asic-dictionary-english.trsl) (./TrackList.tex
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/ot1minntx.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/untxmia.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/untxsym.fd)
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/newtx/untxsyc.fd)
+(I search kanjifont definition file: . . ) (I search font definition file: . .
+. . . . . . . )
+(c:/Program Files/texlive/2022/texmf-dist/tex/latex/ifsym/uifsym.fd)
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 16--16
+ [] 
+[1] [2]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 52--52
+ [] 
+[3]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 72--72
+ [] 
+[4]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 88--88
+ [] 
+[5] [6]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 118--118
+ [] 
+[7] [8]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 145--145
+ [] 
+[9] [10] [11] [12] [13] [14]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 217--217
+ [] 
+[15] [16]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 242--242
+ [] 
+[17] [18]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 270--270
+ [] 
+[19] [20]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 298--298
+ [] 
+[21] [22]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 326--326
+ [] 
+[23] [24]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 353--353
+ [] 
+[25] [26] [27] [28]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 407--407
+ [] 
+[29] [30]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 450--450
+ [] 
+[31]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 474--474
+ [] 
+[32] [33]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 502--502
+ [] 
+[34]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 516--516
+ [] 
+[35] [36]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 547--547
+ [] 
+[37] [38] [39] [40]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 618--618
+ [] 
+[41] [42]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 660--660
+ [] 
+[43] [44]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 703--703
+ [] 
+[45] [46] [47] [48]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 765--765
+ [] 
+[49] [50]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 794--794
+ [] 
+[51]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 810--810
+ [] 
+[52]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 824--824
+ [] 
+[53] [54] [55] [56]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 876--876
+ [] 
+[57] [58]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 908--908
+ [] 
+[59] [60]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 938--938
+ [] 
+[61]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 952--952
+ [] 
+[62] [63] [64]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 991--991
+ [] 
+[65] [66] [67] [68]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 1035--1035
+ [] 
+[69] [70] [71] [72]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 1079--1079
+ [] 
+[73] [74] [75] [76] [77] [78] [79]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 1156--1156
+ [] 
+[80]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 1167--1167
+ [] 
+[81]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 1178--1178
+ [] 
+[82]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 1192--1192
+ [] 
+[83] [84] [85] [86]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 1239--1239
+ [] 
+[87]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 1250--1250
+ [] 
+[88] [89] [90]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 1283--1283
+ [] 
+[91] [92]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 1311--1311
+ [] 
+[93]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 1328--1328
+ [] 
+[94]
+Overfull \hbox (7.84291pt too wide) in paragraph at lines 1346--1346
+ [] 
+[95] [96]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 1378--1378
+ [] 
+[97]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 1392--1392
+ [] 
+[98]
+Overfull \hbox (2.84291pt too wide) in paragraph at lines 1406--1406
+ [] 
+[99] [100] [101]
+Overfull \hbox (2.8429pt too wide) in paragraph at lines 1448--1448
+ [] 
+[102]) Excluding 'comment' comment. Excluding 'comment' comment.
+(./ManualCheckLog_v5.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(see the transcript file for additional information)
+Output written on ManualCheckLog_v5.dvi (102 pages, 247772 bytes).
+Transcript written on ManualCheckLog_v5.log.
+(guessed encoding: UTF-8 = utf8)(guessed encoding: ISO-2022-JP = jis)(guessed encoding: BINARY = jis)(guessed encoding: UTF-8 = utf8)(guessed encoding: ISO-2022-JP = jis)(guessed encoding: UTF-8 = utf8)(guessed encoding: UTF-8 = utf8)(guessed encoding: UTF-8 = utf8)(guessed encoding: UTF-8 = utf8)
