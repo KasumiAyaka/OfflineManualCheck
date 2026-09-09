@@ -4,7 +4,7 @@ pushd %wpath%
 rem PLカットとmuonだけのmomchにしている。
 
 rem make momch
-call tools\pickup_events.bat %1
+call tools\do_01_pickup_events.bat %1
 I:\NINJA\E71a\work\kasumi\ECC\MuonAnalysis\x64\Release\mk_only_muon_momch.exe Momch\ECC%1iron.momch Momch\ECC%1iron_muononly.momch
 C:\Users\kasumi\source\repos\ArrangeMomch\x64\Release\apply_PLcut.exe Momch\ECC%1iron_muononly.momch Momch\ECC%1iron_muononly_PLcut.momch 130
 C:\Users\kasumi\source\repos\ArrangeMomch\x64\Release\apply_PLcut.exe Momch\ECC%1water.momch Momch\ECC%1water_PLcut.momch 130
