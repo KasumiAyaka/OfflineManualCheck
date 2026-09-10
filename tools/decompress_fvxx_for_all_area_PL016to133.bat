@@ -8,7 +8,7 @@ set ECC=%2
 
 
 
-set /a pl0=16
+set /a pl0=100
 set /a pl1=133
 
 :loop
