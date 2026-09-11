@@ -1,0 +1,10 @@
+  - Plate: 131
+    Track: [-0.0795,-0.3249,61555.3,73860.3]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC7/Ref/Event00013/PL131
+  - Plate: 131
+    RawID: 769763
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC7/Ref/Ref/Event00013/PL131

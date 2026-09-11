@@ -2,9 +2,9 @@
     Track: [0.0970,-0.0466,111585.6,53606.9]
     Zone: 1
     Surface: Both
-    SaveTo: "G:ECC7/Ref/Event11741/PL044"
+    SaveTo: "G:ECC7/IMG/Event11741/PL044"
   - Plate: 44
     Track: [0.3444,-0.3101,8392.2,70582.9]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC7/Ref/Event04090/PL044"
+    SaveTo: "G:ECC7/IMG/Event04090/PL044"

@@ -2,14 +2,14 @@
     Track: [-0.2742,-0.3647,42818.0,26873.7]
     Zone: 6
     Surface: Both
-    SaveTo: "G:ECC2/Ref/Event15638/PL120"
+    SaveTo: "G:ECC2/IMG/Event15638/PL120"
   - Plate: 120
     Track: [0.1681,0.0186,35939.1,77725.5]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC2/Ref/Event04673/PL120"
+    SaveTo: "G:ECC2/IMG/Event04673/PL120"
   - Plate: 120
     Track: [-0.3539,0.1113,78403.8,40155.2]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC2/Ref/Event07364/PL120"
+    SaveTo: "G:ECC2/IMG/Event07364/PL120"

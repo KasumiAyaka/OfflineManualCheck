@@ -11,9 +11,9 @@
     Track: [0.2952,-0.0872,71122.3,28635.1]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC8/Ref/Event07231/PL017
+    SaveTo: G:ECC8/IMG/Event07231/PL017
   - Plate: 17
     RawID: 832386
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC8/Ref/Ref/Event07231/PL017
+    SaveTo: G:ECC8/Ref/IMG/Event07231/PL017

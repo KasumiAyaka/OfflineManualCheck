@@ -1,0 +1,86 @@
+  - Plate: 59
+    Track: [0.4723,0.184,108792,78291.7]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event11545/PL059
+  - Plate: 59
+    RawID: 313644
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event11545/PL059
+  - Plate: 59
+    Track: [0.8193,0.2135,37862.8,46860.1]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event01835/PL059
+  - Plate: 59
+    RawID: 248457
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event01835/PL059
+  - Plate: 59
+    Track: [0.4926,0.4324,82726.9,74593.1]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event05793/PL059
+  - Plate: 59
+    RawID: 517306
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event05793/PL059
+  - Plate: 59
+    Track: [-0.4222,0.2882,68732.6,56161.1]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event13311/PL059
+  - Plate: 59
+    RawID: 39046
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event13311/PL059
+  - Plate: 59
+    Track: [0.2585,-0.6524,70259.7,8770.3]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event03990/PL059
+  - Plate: 59
+    RawID: 140344
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event03990/PL059
+  - Plate: 59
+    RawID: 2327588
+    Surface: Both
+    SaveTo: G:ECC3/IMG/Event04009/PL059
+  - Plate: 59
+    RawID: 307797
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/IMG/Event04009/PL059
+  - Plate: 59
+    RawID: 3359235
+    Surface: Both
+    SaveTo: G:ECC3/IMG/Event16944/PL059
+  - Plate: 59
+    RawID: 54906
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC3/Ref/IMG/Event16944/PL059
+  - Plate: 59
+    RawID: 3892227
+    Surface: Both
+    SaveTo: G:ECC3/IMG/Event07069/PL059
+  - Plate: 59
+    RawID: 143132
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC3/Ref/IMG/Event07069/PL059
+  - Plate: 59
+    RawID: 4573203
+    Surface: Both
+    SaveTo: G:ECC3/IMG/Event06569/PL059
+  - Plate: 59
+    RawID: 377514
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC3/Ref/IMG/Event06569/PL059

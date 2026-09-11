@@ -2,19 +2,19 @@
     Track: [-0.1070,0.0642,65789.0,21316.9]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event10288/PL099"
+    SaveTo: "G:ECC9/IMG/Event10288/PL099"
   - Plate: 99
     Track: [0.1465,-0.0562,68564.3,38403.2]
     Zone: 5
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event12675/PL099"
+    SaveTo: "G:ECC9/IMG/Event12675/PL099"
   - Plate: 99
     Track: [0.0859,-0.4137,68268.5,60617.7]
     Zone: 3
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event07324/PL099"
+    SaveTo: "G:ECC9/IMG/Event07324/PL099"
   - Plate: 99
     Track: [0.2901,0.2021,98472.0,10201.7]
     Zone: 3
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event09676/PL099"
+    SaveTo: "G:ECC9/IMG/Event09676/PL099"

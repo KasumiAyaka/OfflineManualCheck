@@ -1,0 +1,20 @@
+  - Plate: 81
+    Track: [0.095,0.213,71148.8,12706.2]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event07504/PL081
+  - Plate: 81
+    RawID: 145058
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event07504/PL081
+  - Plate: 81
+    Track: [0.0789,-0.0786,21771.1,21999.6]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event02808/PL081
+  - Plate: 81
+    RawID: 195293
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event02808/PL081

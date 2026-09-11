@@ -29,12 +29,12 @@
     Track: [-0.1062,-0.404,101373,40759.7]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event12306/PL050
+    SaveTo: G:ECC9/IMG/Event12306/PL050
   - Plate: 50
     RawID: 434347
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event12306/PL050
+    SaveTo: G:ECC9/Ref/IMG/Event12306/PL050
   - Plate: 50
     RawID: 7003950
     Surface: Both

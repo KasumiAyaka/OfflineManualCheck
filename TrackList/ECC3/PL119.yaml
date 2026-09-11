@@ -2,32 +2,32 @@
     Track: [-0.169,0.2851,80249.9,70566.6]
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event07690/PL119
+    SaveTo: G:ECC3/IMG/Event07690/PL119
   - Plate: 119
     RawID: 703599
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event07690/PL119
+    SaveTo: G:ECC3/Ref/IMG/Event07690/PL119
   - Plate: 119
     Track: [-0.0306,-0.3464,63533.4,72521.8]
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event04331/PL119
+    SaveTo: G:ECC3/IMG/Event04331/PL119
   - Plate: 119
     RawID: 1251825
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event04331/PL119
+    SaveTo: G:ECC3/Ref/IMG/Event04331/PL119
   - Plate: 119
     Track: [0.0695,-0.1312,4600.5,81869.4]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event03242/PL119
+    SaveTo: G:ECC3/IMG/Event03242/PL119
   - Plate: 119
     RawID: 1403936
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event03242/PL119
+    SaveTo: G:ECC3/Ref/IMG/Event03242/PL119
   - Plate: 119
     RawID: 3074467
     Surface: Both
@@ -41,29 +41,29 @@
     Track: [-0.7288,-0.0176,42479.4,44440]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event13705/PL119
+    SaveTo: G:ECC3/IMG/Event13705/PL119
   - Plate: 119
     RawID: 237112
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event13705/PL119
+    SaveTo: G:ECC3/Ref/IMG/Event13705/PL119
   - Plate: 119
     Track: [-0.3655,-0.0259,108268,36126.7]
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event04906/PL119
+    SaveTo: G:ECC3/IMG/Event04906/PL119
   - Plate: 119
     RawID: 1313293
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event04906/PL119
+    SaveTo: G:ECC3/Ref/IMG/Event04906/PL119
   - Plate: 119
     Track: [-0.0599,-0.1119,15034.3,51584.6]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event02710/PL119
+    SaveTo: G:ECC3/IMG/Event02710/PL119
   - Plate: 119
     RawID: 60622
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event02710/PL119
+    SaveTo: G:ECC3/Ref/IMG/Event02710/PL119

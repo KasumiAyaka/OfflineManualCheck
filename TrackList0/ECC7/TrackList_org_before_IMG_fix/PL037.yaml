@@ -1,0 +1,22 @@
+  - Plate: 37
+    Track: [0.5353,0.5136,41997.0,84910.2]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event03665/PL037"
+  - Plate: 37
+    Track: [0.0183,0.4270,75633.9,64897.2]
+    Zone: 1
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event09780/PL037"
+  - Plate: 37
+    RawID: 6364432
+    Surface: Both
+    SaveTo: "G:ECC7/IMG/Event10132/PL037"
+  - Plate: 37
+    RawID: 9428317
+    Surface: Both
+    SaveTo: "G:ECC7/IMG/Event02188/PL037"
+  - Plate: 37
+    RawID: 6956059
+    Surface: Both
+    SaveTo: "G:ECC7/IMG/Event09228/PL037"

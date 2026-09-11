@@ -6,14 +6,14 @@
     Track: [-0.1968,-0.2187,42028.4,37428.0]
     Zone: 6
     Surface: Both
-    SaveTo: "G:ECC4/Ref/Event00450/PL038"
+    SaveTo: "G:ECC4/IMG/Event00450/PL038"
   - Plate: 38
     Track: [-0.1904,-0.3840,60772.2,74478.9]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC4/Ref/Event07378/PL038"
+    SaveTo: "G:ECC4/IMG/Event07378/PL038"
   - Plate: 38
     Track: [-0.0191,-0.9266,116972.8,39167.8]
     Zone: 5
     Surface: Both
-    SaveTo: "G:ECC4/Ref/Event08322/PL038"
+    SaveTo: "G:ECC4/IMG/Event08322/PL038"

@@ -20,12 +20,12 @@
     Track: [0.0731,-0.1875,124200,67277.9]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event10341/PL130
+    SaveTo: G:ECC4/IMG/Event10341/PL130
   - Plate: 130
     RawID: 268367
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event10341/PL130
+    SaveTo: G:ECC4/Ref/IMG/Event10341/PL130
   - Plate: 130
     RawID: 6317424
     Surface: Both

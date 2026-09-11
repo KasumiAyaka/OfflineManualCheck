@@ -6,9 +6,9 @@
     Track: [-0.5851,-0.3359,68854.5,18558.2]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event06637/PL090"
+    SaveTo: "G:ECC9/IMG/Event06637/PL090"
   - Plate: 90
     Track: [0.1202,-0.3674,90496.5,15995.2]
     Zone: 6
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event10182/PL090"
+    SaveTo: "G:ECC9/IMG/Event10182/PL090"

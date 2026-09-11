@@ -11,32 +11,32 @@
     Track: [0.3952,0.1172,108249,44012.3]
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event01115/PL034
+    SaveTo: G:ECC4/IMG/Event01115/PL034
   - Plate: 34
     RawID: 230223
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event01115/PL034
+    SaveTo: G:ECC4/Ref/IMG/Event01115/PL034
   - Plate: 34
     Track: [-0.1158,0.0756,115292,35196.1]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event09955/PL034
+    SaveTo: G:ECC4/IMG/Event09955/PL034
   - Plate: 34
     RawID: 201368
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event09955/PL034
+    SaveTo: G:ECC4/Ref/IMG/Event09955/PL034
   - Plate: 34
     Track: [0.0193,0.1943,19745.2,26170.8]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event05210/PL034
+    SaveTo: G:ECC4/IMG/Event05210/PL034
   - Plate: 34
     RawID: 407023
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event05210/PL034
+    SaveTo: G:ECC4/Ref/IMG/Event05210/PL034
   - Plate: 34
     RawID: 5075353
     Surface: Both
@@ -50,19 +50,19 @@
     Track: [-0.0167,0.1538,33386.7,24829.9]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event01966/PL034
+    SaveTo: G:ECC4/IMG/Event01966/PL034
   - Plate: 34
     RawID: 862670
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event01966/PL034
+    SaveTo: G:ECC4/Ref/IMG/Event01966/PL034
   - Plate: 34
     Track: [0.498,-0.0407,67185.8,14763.6]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event06328/PL034
+    SaveTo: G:ECC4/IMG/Event06328/PL034
   - Plate: 34
     RawID: 791074
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event06328/PL034
+    SaveTo: G:ECC4/Ref/IMG/Event06328/PL034

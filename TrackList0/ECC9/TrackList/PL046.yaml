@@ -6,7 +6,7 @@
     Track: [-0.0919,-0.0773,39989.5,30939.1]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event14299/PL046"
+    SaveTo: "G:ECC9/IMG/Event14299/PL046"
   - Plate: 46
     RawID: 5872951
     Surface: Both
@@ -27,4 +27,4 @@
     Track: [0.2082,0.1310,54457.4,56288.1]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC9/Ref/Event08067/PL046"
+    SaveTo: "G:ECC9/IMG/Event08067/PL046"

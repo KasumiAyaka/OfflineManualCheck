@@ -1,0 +1,14 @@
+  - Plate: 120
+    Track: [-0.0234,0.0097,42146.5,70527.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event06060/PL120"
+  - Plate: 120
+    RawID: 8054813
+    Surface: Both
+    SaveTo: "G:ECC8/IMG/Event07078/PL120"
+  - Plate: 120
+    Track: [0.7769,-0.1758,57178.4,21742.0]
+    Zone: 5
+    Surface: Both
+    SaveTo: "G:ECC8/Ref/Event03179/PL120"

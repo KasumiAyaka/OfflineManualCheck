@@ -2,12 +2,12 @@
     Track: [-0.1078,0.1294,84464.2,59628.9]
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event07670/PL080
+    SaveTo: G:ECC4/IMG/Event07670/PL080
   - Plate: 80
     RawID: 1160114
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event07670/PL080
+    SaveTo: G:ECC4/Ref/IMG/Event07670/PL080
   - Plate: 80
     RawID: 3030614
     Surface: Both
@@ -39,52 +39,52 @@
     Track: [0.1554,0.1493,64162.5,34504.5]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event10728/PL080
+    SaveTo: G:ECC4/IMG/Event10728/PL080
   - Plate: 80
     RawID: 636353
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event10728/PL080
+    SaveTo: G:ECC4/Ref/IMG/Event10728/PL080
   - Plate: 80
     Track: [0.063,-0.1823,31910.7,50121.1]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event11647/PL080
+    SaveTo: G:ECC4/IMG/Event11647/PL080
   - Plate: 80
     RawID: 33350
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event11647/PL080
+    SaveTo: G:ECC4/Ref/IMG/Event11647/PL080
   - Plate: 80
     Track: [-0.0303,-0.273,18021.5,26067.3]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event01238/PL080
+    SaveTo: G:ECC4/IMG/Event01238/PL080
   - Plate: 80
     RawID: 432541
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event01238/PL080
+    SaveTo: G:ECC4/Ref/IMG/Event01238/PL080
   - Plate: 80
     Track: [-0.0515,-0.0257,48754.7,60659.8]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event00833/PL080
+    SaveTo: G:ECC4/IMG/Event00833/PL080
   - Plate: 80
     RawID: 277463
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event00833/PL080
+    SaveTo: G:ECC4/Ref/IMG/Event00833/PL080
   - Plate: 80
     Track: [0.3801,-0.3009,49052.1,47527.9]
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event06364/PL080
+    SaveTo: G:ECC4/IMG/Event06364/PL080
   - Plate: 80
     RawID: 1170637
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event06364/PL080
+    SaveTo: G:ECC4/Ref/IMG/Event06364/PL080
   - Plate: 80
     RawID: 6124759
     Surface: Both
@@ -98,9 +98,9 @@
     Track: [-0.0088,-0.3598,67050.9,46997.7]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event07446/PL080
+    SaveTo: G:ECC4/IMG/Event07446/PL080
   - Plate: 80
     RawID: 31744
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event07446/PL080
+    SaveTo: G:ECC4/Ref/IMG/Event07446/PL080

@@ -2,12 +2,12 @@
     Track: [-0.0888,0.3457,43007.4,74324]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC8/Ref/Event10683/PL044
+    SaveTo: G:ECC8/IMG/Event10683/PL044
   - Plate: 44
     RawID: 538857
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC8/Ref/Ref/Event10683/PL044
+    SaveTo: G:ECC8/Ref/IMG/Event10683/PL044
   - Plate: 44
     RawID: 4017845
     Surface: Both

@@ -1,0 +1,9 @@
+  - Plate: 115
+    RawID: 5032791
+    Surface: Both
+    SaveTo: G:ECC2/IMG/Event10671/PL115
+  - Plate: 115
+    RawID: 1060966
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC2/Ref/IMG/Event10671/PL115

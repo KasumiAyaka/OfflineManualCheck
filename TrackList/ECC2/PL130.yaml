@@ -2,22 +2,22 @@
     Track: [-0.0646,-0.2115,64848.3,68042.1]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC2/Ref/Event14250/PL130
+    SaveTo: G:ECC2/IMG/Event14250/PL130
   - Plate: 130
     RawID: 90748
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC2/Ref/Ref/Event14250/PL130
+    SaveTo: G:ECC2/Ref/IMG/Event14250/PL130
   - Plate: 130
     Track: [0.0222,-0.3763,57704.3,43738.2]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC2/Ref/Event07994/PL130
+    SaveTo: G:ECC2/IMG/Event07994/PL130
   - Plate: 130
     RawID: 234237
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC2/Ref/Ref/Event07994/PL130
+    SaveTo: G:ECC2/Ref/IMG/Event07994/PL130
   - Plate: 130
     RawID: 6153115
     Surface: Both

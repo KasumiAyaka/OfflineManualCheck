@@ -1,0 +1,19 @@
+  - Plate: 55
+    Track: [0.3792,-0.0728,122746,79536.2]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC7/Ref/Event00582/PL055
+  - Plate: 55
+    RawID: 635272
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC7/Ref/Ref/Event00582/PL055
+  - Plate: 55
+    RawID: 9920634
+    Surface: Both
+    SaveTo: G:ECC7/IMG/Event04033/PL055
+  - Plate: 55
+    RawID: 889692
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC7/Ref/IMG/Event04033/PL055

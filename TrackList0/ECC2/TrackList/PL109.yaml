@@ -2,12 +2,12 @@
     Track: [0.2196,-0.0980,83945.9,58665.1]
     Zone: 3
     Surface: Both
-    SaveTo: "G:ECC2/Ref/Event16820/PL109"
+    SaveTo: "G:ECC2/IMG/Event16820/PL109"
   - Plate: 109
     Track: [0.2027,0.0040,57109.9,52798.2]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC2/Ref/Event04401/PL109"
+    SaveTo: "G:ECC2/IMG/Event04401/PL109"
   - Plate: 109
     RawID: 4248489
     Surface: Both

@@ -2,7 +2,7 @@
     Track: [0.0567,0.1891,112593.2,22089.6]
     Zone: 3
     Surface: Both
-    SaveTo: "G:ECC4/Ref/Event06645/PL105"
+    SaveTo: "G:ECC4/IMG/Event06645/PL105"
   - Plate: 105
     RawID: 2720908
     Surface: Both
@@ -11,4 +11,4 @@
     Track: [0.5450,-0.5578,55877.0,19875.1]
     Zone: 5
     Surface: Both
-    SaveTo: "G:ECC4/Ref/Event09179/PL105"
+    SaveTo: "G:ECC4/IMG/Event09179/PL105"

@@ -8,7 +8,7 @@ set ECC=%2
 
 
 
-set /a pl0=100
+set /a pl0=16
 set /a pl1=133
 
 :loop
@@ -17,9 +17,9 @@ set pl=!n:~-3!
 set area=1
 
 :loop_area
-
-if %area%==1 set ecc_path=%dletter%:\NINJA\E71a\ECC%2\Area%area%\PL%pl%
-if %area% gtr 1 set ecc_path=I:\NINJA\E71a\ECC%2\Area%area%\PL%pl%
+set ecc_path=%dletter%:\NINJA\E71a\ECC%2\Area%area%\PL%pl%
+rem if %area%==1 set ecc_path=%dletter%:\NINJA\E71a\ECC%2\Area%area%\PL%pl%
+rem if %area% gtr 1 set ecc_path=I:\NINJA\E71a\ECC%2\Area%area%\PL%pl%
 
 
 pushd %ecc_path%

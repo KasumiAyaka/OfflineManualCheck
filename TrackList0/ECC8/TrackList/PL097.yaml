@@ -2,12 +2,12 @@
     Track: [-0.1651,-0.0517,24966.9,54811.0]
     Zone: 4
     Surface: Both
-    SaveTo: "G:ECC8/Ref/Event12055/PL097"
+    SaveTo: "G:ECC8/IMG/Event12055/PL097"
   - Plate: 97
     Track: [-0.1371,0.2837,64476.6,19642.0]
     Zone: 6
     Surface: Both
-    SaveTo: "G:ECC8/Ref/Event05898/PL097"
+    SaveTo: "G:ECC8/IMG/Event05898/PL097"
   - Plate: 97
     RawID: 4145026
     Surface: Both

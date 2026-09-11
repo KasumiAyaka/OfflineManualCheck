@@ -2,32 +2,32 @@
     Track: [-0.1194,-0.207,77634.9,58040.1]
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event06820/PL122
+    SaveTo: G:ECC3/IMG/Event06820/PL122
   - Plate: 122
     RawID: 964077
     Zone: 1
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event06820/PL122
+    SaveTo: G:ECC3/Ref/IMG/Event06820/PL122
   - Plate: 122
     Track: [-0.0859,-0.0379,73969.1,77723.7]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event14656/PL122
+    SaveTo: G:ECC3/IMG/Event14656/PL122
   - Plate: 122
     RawID: 1193612
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event14656/PL122
+    SaveTo: G:ECC3/Ref/IMG/Event14656/PL122
   - Plate: 122
     Track: [-0.0032,-0.0512,53313.7,75254.7]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event12672/PL122
+    SaveTo: G:ECC3/IMG/Event12672/PL122
   - Plate: 122
     RawID: 311632
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event12672/PL122
+    SaveTo: G:ECC3/Ref/IMG/Event12672/PL122
   - Plate: 122
     RawID: 2429288
     Surface: Both
@@ -41,22 +41,22 @@
     Track: [0.349,-0.1502,52810.8,35693.5]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event11671/PL122
+    SaveTo: G:ECC3/IMG/Event11671/PL122
   - Plate: 122
     RawID: 427829
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event11671/PL122
+    SaveTo: G:ECC3/Ref/IMG/Event11671/PL122
   - Plate: 122
     Track: [-0.0379,-0.1594,59395.6,44281.4]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event17053/PL122
+    SaveTo: G:ECC3/IMG/Event17053/PL122
   - Plate: 122
     RawID: 914780
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event17053/PL122
+    SaveTo: G:ECC3/Ref/IMG/Event17053/PL122
   - Plate: 122
     RawID: 3853745
     Surface: Both
@@ -70,9 +70,9 @@
     Track: [0.1047,-0.0891,12347.7,27028.7]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event13316/PL122
+    SaveTo: G:ECC3/IMG/Event13316/PL122
   - Plate: 122
     RawID: 1088422
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event13316/PL122
+    SaveTo: G:ECC3/Ref/IMG/Event13316/PL122

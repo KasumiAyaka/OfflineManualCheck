@@ -1,0 +1,19 @@
+  - Plate: 121
+    Track: [0.0738,0.012,101310,62184.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC7/Ref/Event11813/PL121
+  - Plate: 121
+    RawID: 2455969
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC7/Ref/Ref/Event11813/PL121
+  - Plate: 121
+    RawID: 14026060
+    Surface: Both
+    SaveTo: G:ECC7/IMG/Event03978/PL121
+  - Plate: 121
+    RawID: 2615007
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC7/Ref/IMG/Event03978/PL121

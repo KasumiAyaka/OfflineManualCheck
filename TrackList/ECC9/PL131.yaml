@@ -2,69 +2,69 @@
     Track: [-0.2542,-0.0838,47874,75577.9]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event00258/PL131
+    SaveTo: G:ECC9/IMG/Event00258/PL131
   - Plate: 131
     RawID: 897860
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event00258/PL131
+    SaveTo: G:ECC9/Ref/IMG/Event00258/PL131
   - Plate: 131
     Track: [-0.3211,-0.1313,81450.2,80420.7]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event08879/PL131
+    SaveTo: G:ECC9/IMG/Event08879/PL131
   - Plate: 131
     RawID: 930003
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event08879/PL131
+    SaveTo: G:ECC9/Ref/IMG/Event08879/PL131
   - Plate: 131
     Track: [0.0894,-0.0812,14924.4,58786.1]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event00508/PL131
+    SaveTo: G:ECC9/IMG/Event00508/PL131
   - Plate: 131
     RawID: 444676
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event00508/PL131
+    SaveTo: G:ECC9/Ref/IMG/Event00508/PL131
   - Plate: 131
     Track: [-0.0205,-0.1366,71198.2,39662]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event06079/PL131
+    SaveTo: G:ECC9/IMG/Event06079/PL131
   - Plate: 131
     RawID: 440097
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event06079/PL131
+    SaveTo: G:ECC9/Ref/IMG/Event06079/PL131
   - Plate: 131
     Track: [-0.1338,-0.1136,41759,81233.8]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event09657/PL131
+    SaveTo: G:ECC9/IMG/Event09657/PL131
   - Plate: 131
     RawID: 585689
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event09657/PL131
+    SaveTo: G:ECC9/Ref/IMG/Event09657/PL131
   - Plate: 131
     Track: [0.1501,-0.136,58118.5,17031.7]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event13105/PL131
+    SaveTo: G:ECC9/IMG/Event13105/PL131
   - Plate: 131
     RawID: 195477
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event13105/PL131
+    SaveTo: G:ECC9/Ref/IMG/Event13105/PL131
   - Plate: 131
     Track: [0.3072,0.0785,53343,15426.6]
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC9/Ref/Event02664/PL131
+    SaveTo: G:ECC9/IMG/Event02664/PL131
   - Plate: 131
     RawID: 203440
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC9/Ref/Ref/Event02664/PL131
+    SaveTo: G:ECC9/Ref/IMG/Event02664/PL131

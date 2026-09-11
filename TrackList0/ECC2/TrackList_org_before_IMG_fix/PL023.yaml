@@ -1,0 +1,14 @@
+  - Plate: 23
+    RawID: 1839741
+    Surface: Both
+    SaveTo: "G:ECC2/IMG/Event12833/PL023"
+  - Plate: 23
+    Track: [0.1749,-0.5212,57187.1,77130.7]
+    Zone: 2
+    Surface: Both
+    SaveTo: "G:ECC2/Ref/Event09029/PL023"
+  - Plate: 23
+    Track: [0.0642,-0.0505,55452.0,26620.7]
+    Zone: 4
+    Surface: Both
+    SaveTo: "G:ECC2/Ref/Event09470/PL023"

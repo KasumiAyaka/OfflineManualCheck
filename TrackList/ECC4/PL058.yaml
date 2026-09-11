@@ -20,19 +20,19 @@
     Track: [0.4433,0.0461,9028.1,27138]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event02115/PL058
+    SaveTo: G:ECC4/IMG/Event02115/PL058
   - Plate: 58
     RawID: 1502619
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event02115/PL058
+    SaveTo: G:ECC4/Ref/IMG/Event02115/PL058
   - Plate: 58
     Track: [0.1297,0.369,81902.4,38274.1]
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Event04606/PL058
+    SaveTo: G:ECC4/IMG/Event04606/PL058
   - Plate: 58
     RawID: 1099917
     Zone: 6
     Surface: Both
-    SaveTo: G:ECC4/Ref/Ref/Event04606/PL058
+    SaveTo: G:ECC4/Ref/IMG/Event04606/PL058

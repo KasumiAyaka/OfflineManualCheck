@@ -2,12 +2,12 @@
     Track: [-0.1675,-0.2884,97018.6,83961.7]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event14518/PL113
+    SaveTo: G:ECC3/IMG/Event14518/PL113
   - Plate: 113
     RawID: 312350
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event14518/PL113
+    SaveTo: G:ECC3/Ref/IMG/Event14518/PL113
   - Plate: 113
     RawID: 6379237
     Surface: Both

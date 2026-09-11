@@ -1,0 +1,87 @@
+  - Plate: 24
+    Track: [0.3011,0.2853,96596.6,42148.1]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event10749/PL024
+  - Plate: 24
+    RawID: 448945
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event10749/PL024
+  - Plate: 24
+    Track: [-0.2692,-0.1139,46412,51484.8]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event07628/PL024
+  - Plate: 24
+    RawID: 942562
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event07628/PL024
+  - Plate: 24
+    Track: [-0.7217,-0.6412,18228.2,53282.9]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event09686/PL024
+  - Plate: 24
+    RawID: 43816
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event09686/PL024
+  - Plate: 24
+    Track: [-0.305,0.2008,108154,23549.3]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event01628/PL024
+  - Plate: 24
+    RawID: 403035
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event01628/PL024
+  - Plate: 24
+    Track: [0.1136,0.3037,106293,7741.9]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event07873/PL024
+  - Plate: 24
+    RawID: 137642
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event07873/PL024
+  - Plate: 24
+    RawID: 4435061
+    Surface: Both
+    SaveTo: G:ECC3/IMG/Event09003/PL024
+  - Plate: 24
+    RawID: 915470
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC3/Ref/IMG/Event09003/PL024
+  - Plate: 24
+    Track: [-0.6141,0.27,104171,18161.5]
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Event04924/PL024
+  - Plate: 24
+    RawID: 163304
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC3/Ref/Ref/Event04924/PL024
+  - Plate: 24
+    RawID: 5677740
+    Surface: Both
+    SaveTo: G:ECC3/IMG/Event10708/PL024
+  - Plate: 24
+    RawID: 384366
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC3/Ref/IMG/Event10708/PL024
+  - Plate: 24
+    RawID: 5688382
+    Surface: Both
+    SaveTo: G:ECC3/IMG/Event05024/PL024
+  - Plate: 24
+    RawID: 407172
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC3/Ref/IMG/Event05024/PL024

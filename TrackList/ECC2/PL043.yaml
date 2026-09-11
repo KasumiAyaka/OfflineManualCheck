@@ -11,9 +11,9 @@
     Track: [1.85,-1.5557,61015.6,66007.8]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC2/Ref/Event00275/PL043
+    SaveTo: G:ECC2/IMG/Event00275/PL043
   - Plate: 43
     RawID: 290486
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC2/Ref/Ref/Event00275/PL043
+    SaveTo: G:ECC2/Ref/IMG/Event00275/PL043

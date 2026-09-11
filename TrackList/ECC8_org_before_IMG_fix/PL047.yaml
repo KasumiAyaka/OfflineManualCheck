@@ -1,0 +1,103 @@
+  - Plate: 47
+    RawID: 755752
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event01778/PL047
+  - Plate: 47
+    RawID: 2317555
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event01778/PL047
+  - Plate: 47
+    RawID: 3156398
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event04912/PL047
+  - Plate: 47
+    RawID: 714328
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event04912/PL047
+  - Plate: 47
+    Track: [-0.068,0.2504,83562,60668]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event10490/PL047
+  - Plate: 47
+    RawID: 696765
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event10490/PL047
+  - Plate: 47
+    Track: [0.7039,-0.1748,116667,8178.5]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event02679/PL047
+  - Plate: 47
+    RawID: 2121885
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event02679/PL047
+  - Plate: 47
+    RawID: 5065754
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event00067/PL047
+  - Plate: 47
+    RawID: 1075433
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event00067/PL047
+  - Plate: 47
+    RawID: 8776556
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event08508/PL047
+  - Plate: 47
+    RawID: 771213
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event08508/PL047
+  - Plate: 47
+    RawID: 9496261
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event12515/PL047
+  - Plate: 47
+    RawID: 1328361
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event12515/PL047
+  - Plate: 47
+    RawID: 10599918
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event02100/PL047
+  - Plate: 47
+    RawID: 1361990
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event02100/PL047
+  - Plate: 47
+    RawID: 10599918
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event02101/PL047
+  - Plate: 47
+    RawID: 2245849
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event02101/PL047
+  - Plate: 47
+    Track: [-0.0247,-0.2506,71301.2,51966]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event09447/PL047
+  - Plate: 47
+    RawID: 491830
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event09447/PL047
+  - Plate: 47
+    Track: [-0.215,0.3068,49838.5,33681.4]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event04199/PL047
+  - Plate: 47
+    RawID: 426547
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event04199/PL047

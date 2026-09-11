@@ -11,9 +11,9 @@
     Track: [0.3436,-0.3122,10161.7,72293.1]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC7/Ref/Event04090/PL045
+    SaveTo: G:ECC7/IMG/Event04090/PL045
   - Plate: 45
     RawID: 1425503
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC7/Ref/Ref/Event04090/PL045
+    SaveTo: G:ECC7/Ref/IMG/Event04090/PL045

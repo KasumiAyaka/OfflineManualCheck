@@ -1,0 +1,22 @@
+  - Plate: 93
+    RawID: 1639242
+    Surface: Both
+    SaveTo: "G:ECC2/IMG/Event15553/PL093"
+  - Plate: 93
+    Track: [-0.2115,-0.7520,40563.2,41439.8]
+    Zone: 6
+    Surface: Both
+    SaveTo: "G:ECC2/Ref/Event02964/PL093"
+  - Plate: 93
+    RawID: 3907290
+    Surface: Both
+    SaveTo: "G:ECC2/IMG/Event06089/PL093"
+  - Plate: 93
+    Track: [0.5526,-0.2809,114556.9,84323.6]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC2/Ref/Event07958/PL093"
+  - Plate: 93
+    RawID: 907626
+    Surface: Both
+    SaveTo: "G:ECC2/IMG/Event00913/PL093"

@@ -1,0 +1,20 @@
+  - Plate: 70
+    Track: [0.3327,0.3273,62354.0,42130.0]
+    Zone: 2
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event01776/PL070"
+  - Plate: 70
+    Track: [0.0603,0.0780,110745.0,47953.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event04348/PL070"
+  - Plate: 70
+    Track: [-0.0107,-0.3353,11579.1,42089.8]
+    Zone: 6
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event01127/PL070"
+  - Plate: 70
+    Track: [-0.0120,-0.3394,57426.3,33252.6]
+    Zone: 6
+    Surface: Both
+    SaveTo: "G:ECC7/Ref/Event02347/PL070"

@@ -1,0 +1,50 @@
+  - Plate: 108
+    Track: [0.2603,-0.2594,104013,15301.2]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Event01036/PL108
+  - Plate: 108
+    RawID: 547819
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Ref/Event01036/PL108
+  - Plate: 108
+    Track: [0.0983,-0.1266,106973,50555.7]
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Event02084/PL108
+  - Plate: 108
+    RawID: 41454
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Ref/Event02084/PL108
+  - Plate: 108
+    Track: [0.1234,-0.0092,74529.3,18189.7]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Event12450/PL108
+  - Plate: 108
+    RawID: 191963
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Ref/Event12450/PL108
+  - Plate: 108
+    Track: [-0.0729,0.217,91927,31027.2]
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Event12406/PL108
+  - Plate: 108
+    RawID: 626275
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Ref/Event12406/PL108
+  - Plate: 108
+    Track: [-0.3935,-0.2356,41102,51367.5]
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Event13736/PL108
+  - Plate: 108
+    RawID: 674851
+    Zone: 6
+    Surface: Both
+    SaveTo: G:ECC9/Ref/Ref/Event13736/PL108

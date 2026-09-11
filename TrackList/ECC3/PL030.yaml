@@ -2,32 +2,32 @@
     Track: [0.5715,-0.1037,48319.1,77259.2]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event00385/PL030
+    SaveTo: G:ECC3/IMG/Event00385/PL030
   - Plate: 30
     RawID: 278985
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event00385/PL030
+    SaveTo: G:ECC3/Ref/IMG/Event00385/PL030
   - Plate: 30
     Track: [-0.1004,0.3263,83660.7,82023]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event02255/PL030
+    SaveTo: G:ECC3/IMG/Event02255/PL030
   - Plate: 30
     RawID: 544952
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event02255/PL030
+    SaveTo: G:ECC3/Ref/IMG/Event02255/PL030
   - Plate: 30
     Track: [0.0571,0.2395,70140.6,80375.4]
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event07377/PL030
+    SaveTo: G:ECC3/IMG/Event07377/PL030
   - Plate: 30
     RawID: 531152
     Zone: 2
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event07377/PL030
+    SaveTo: G:ECC3/Ref/IMG/Event07377/PL030
   - Plate: 30
     RawID: 2905741
     Surface: Both
@@ -41,22 +41,22 @@
     Track: [1.2515,0.2155,70576.6,6281.8]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event13637/PL030
+    SaveTo: G:ECC3/IMG/Event13637/PL030
   - Plate: 30
     RawID: 555599
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event13637/PL030
+    SaveTo: G:ECC3/Ref/IMG/Event13637/PL030
   - Plate: 30
     Track: [-0.2491,0.3428,90419.4,31285.2]
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event13734/PL030
+    SaveTo: G:ECC3/IMG/Event13734/PL030
   - Plate: 30
     RawID: 645296
     Zone: 3
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event13734/PL030
+    SaveTo: G:ECC3/Ref/IMG/Event13734/PL030
   - Plate: 30
     RawID: 2997919
     Surface: Both
@@ -79,19 +79,19 @@
     Track: [-0.1096,-0.2557,70626.9,78743.9]
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event15598/PL030
+    SaveTo: G:ECC3/IMG/Event15598/PL030
   - Plate: 30
     RawID: 1251452
     Zone: 4
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event15598/PL030
+    SaveTo: G:ECC3/Ref/IMG/Event15598/PL030
   - Plate: 30
     Track: [0.3844,0.5787,86263.4,49400.5]
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC3/Ref/Event03583/PL030
+    SaveTo: G:ECC3/IMG/Event03583/PL030
   - Plate: 30
     RawID: 249206
     Zone: 5
     Surface: Both
-    SaveTo: G:ECC3/Ref/Ref/Event03583/PL030
+    SaveTo: G:ECC3/Ref/IMG/Event03583/PL030

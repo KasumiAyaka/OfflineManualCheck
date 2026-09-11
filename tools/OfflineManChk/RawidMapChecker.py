@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-# *_rawidmap.txt (format: PL eventid rawid1 zone rawid2 ax ay x y ph%10000) を
+# *_rawidmap.txt (format: PL eventid rawid1 zone rawid2 ax ay x y ph1 ph2 trk_type) を
 # eventid -> PL の昇順に並べて1行ずつ表示し、
 # マウス/キーボードで6択のチェック結果（6を選ぶと自由コメント欄も入力）を記録するツール。
-# 出力フォーマット: PL eventid rawid1 zone rawid2 入力した結果 入力したコメント
+# 1行は実在(trk_type=0)・外挿(trk_type=1)・近くのトラック/Reference(trk_type=-1)のいずれか1件を表し、
+# それぞれ独立してチェックする（Make_rawidmap_from_TrackList.cppの出力フォーマットに対応）。
+# 出力フォーマット: PL eventid rawid1 zone rawid2 trk_type 入力した結果 入力したコメント
 import os
 import sys
 import tkinter as tk
@@ -16,8 +18,18 @@ OPTIONS = [
     "Cannot judge.",
     "Add comments.",
 ]
-FIELDS = ["PL", "eventid", "rawid1", "zone", "rawid2", "ax", "ay", "x", "y", "ph"]
-KEY_FIELDS = FIELDS[:5]  # PL eventid rawid1 zone rawid2 (出力行の先頭5列 = 一意なキー)
+FIELDS = ["PL", "eventid", "rawid1", "zone", "rawid2", "ax", "ay", "x", "y", "ph1", "ph2", "trk_type"]
+KEY_FIELDS = ["PL", "eventid", "rawid1", "zone", "rawid2", "trk_type"]  # 出力行の先頭6列 = 一意なキー
+DISPLAY_FIELDS = ["eventid", "PL", "rawid1", "ax", "ay", "x", "y", "ph1", "ph2"]  # 表に常時表示する列
+DISPLAY_LABELS = {"ph1": "VPH1(PH)", "ph2": "VPH2(PH)"}  # 見出しを差し替える列
+SCAN_AREA_FIELDS = ["zone", "rawid2"]  # "scan area info" ボタンを押したときだけ表示する列
+
+# 右上の表示モード切り替え。"Muon" は trk_type 0(実在)/1(外挿)、"Reference" は trk_type -1 のみ表示する。
+MODES = ["Muon", "Reference"]
+MODE_FILTERS = {
+    "Muon": lambda t: t in (0, 1),
+    "Reference": lambda t: t == -1,
+}
 
 # 見た目の調整用（ここを変えるだけで文字サイズ・背景色を変更できます）
 TABLE_FONT = ("Consolas", 16)
@@ -40,23 +52,44 @@ def _to_int(text, default=0):
         return default
 
 
+def _format_ph(text):
+    v = _to_int(text, default=None)
+    if v is None or v == -1:
+        return "-1"
+    return f"{v % 10000}({v // 10000})"
+
+
 class RawidMapChecker(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Rawidmap Checker")
-        self.geometry("1400x520")
+        self.geometry("1300x520")
 
-        self.rows = []       # eventid -> PL の昇順にソート済み
+        self.rows = []       # eventid -> PL の昇順にソート済み(全trk_type)
         self.results = []    # 各rowに対応する (choice:int, comment:str) または None
-        self.index = 0
+        self.mode = "Muon"   # "Muon" (trk_type 0/1) または "Reference" (trk_type -1)
+        self.view = []       # 現在のmodeで絞り込んだ self.rows へのインデックス列
+        self.pos = 0         # self.view内での現在位置
         self.output_path = None
 
         self._build_ui()
         self.after(50, self._load_input)
 
     def _build_ui(self):
+        top_frame = tk.Frame(self)
+        top_frame.pack(fill="x", padx=10, pady=(10, 0))
+
         self.type_var = tk.StringVar(value="")
-        tk.Label(self, textvariable=self.type_var, font=TYPE_FONT, anchor="w").pack(fill="x", padx=10, pady=(10, 0))
+        tk.Label(top_frame, textvariable=self.type_var, font=TYPE_FONT, anchor="w").pack(side="left")
+
+        mode_frame = tk.Frame(top_frame)
+        mode_frame.pack(side="right")
+        self.mode_buttons = {}
+        for mode_name in MODES:
+            b = tk.Button(mode_frame, text=mode_name, font=BUTTON_FONT, width=12,
+                          command=lambda m=mode_name: self.set_mode(m))
+            b.pack(side="left", padx=3)
+            self.mode_buttons[mode_name] = b
 
         self.progress_var = tk.StringVar(value="")
         tk.Label(self, textvariable=self.progress_var, font=PROGRESS_FONT).pack(pady=(5, 0))
@@ -64,8 +97,9 @@ class RawidMapChecker(tk.Tk):
         table_frame = tk.Frame(self)
         table_frame.pack(pady=10)
         self.value_vars = {}
-        for col, name in enumerate(FIELDS):
-            tk.Label(table_frame, text=name, font=TABLE_FONT + ("bold",),
+        for col, name in enumerate(DISPLAY_FIELDS):
+            label = DISPLAY_LABELS.get(name, name)
+            tk.Label(table_frame, text=label, font=TABLE_FONT + ("bold",),
                      relief="ridge", borderwidth=1, width=10, bg=TABLE_HEADER_BG).grid(row=0, column=col, sticky="nsew")
             var = tk.StringVar(value="")
             tk.Label(table_frame, textvariable=var, font=TABLE_FONT,
@@ -109,6 +143,7 @@ class RawidMapChecker(tk.Tk):
         self.event_entry.pack(side="left", padx=5)
         self.event_entry.bind("<Return>", lambda e: self.jump_to_event())
         tk.Button(jump_frame, text="Go", font=BUTTON_FONT, command=self.jump_to_event).pack(side="left")
+        tk.Button(jump_frame, text="scan area info", font=BUTTON_FONT, command=self.show_scan_area_info).pack(side="left", padx=(10, 0))
         self.jump_status_var = tk.StringVar(value="")
         tk.Label(jump_frame, textvariable=self.jump_status_var, font=BUTTON_FONT, fg="red").pack(side="left", padx=10)
 
@@ -152,18 +187,31 @@ class RawidMapChecker(tk.Tk):
             base = base[: -len("_rawidmap")]
         self.output_path = base + "_result" + (ext or ".txt")
 
-        self.index = 0
         if os.path.exists(self.output_path):
             choice = self._ask_output_choice(os.path.basename(self.output_path))
             if choice == "append":
                 self._load_existing_results(self.output_path)
-                first_unanswered = next((i for i, r in enumerate(self.results) if r is None), None)
-                self.index = first_unanswered if first_unanswered is not None else len(self.rows) - 1
             elif choice == "new":
                 self.output_path = self._next_numbered_path(self.output_path)
             # choice == "overwrite" -> results はまっさらのまま、output_pathも変更なし
 
+        self._rebuild_view()
         self.show_current()
+
+    def set_mode(self, mode):
+        if mode == self.mode:
+            return
+        self.mode = mode
+        self._rebuild_view()
+        self.show_current()
+
+    def _rebuild_view(self):
+        pred = MODE_FILTERS[self.mode]
+        self.view = [i for i, row in enumerate(self.rows) if pred(_to_int(row["trk_type"], default=None))]
+        first_unanswered = next((p for p, i in enumerate(self.view) if self.results[i] is None), None)
+        self.pos = first_unanswered if first_unanswered is not None else max(len(self.view) - 1, 0)
+        for name, btn in self.mode_buttons.items():
+            btn.config(bg=OPTION_BUTTON_SELECTED_BG if name == self.mode else OPTION_BUTTON_BG)
 
     def _ask_output_choice(self, filename):
         result = {"choice": "new"}
@@ -241,7 +289,8 @@ class RawidMapChecker(tk.Tk):
                 if result is None:
                     continue
                 choice, comment = result
-                line = f"{row['PL']} {row['eventid']} {row['rawid1']} {row['zone']} {row['rawid2']} {OPTIONS[choice - 1]}"
+                key_values = " ".join(row[f] for f in KEY_FIELDS)
+                line = f"{key_values} {OPTIONS[choice - 1]}"
                 if comment:
                     line += f" {comment}"
                 f.write(line + "\n")
@@ -251,21 +300,48 @@ class RawidMapChecker(tk.Tk):
     # ------------------------------------------------------------------
     @staticmethod
     def _row_type(row):
-        if _to_int(row["rawid1"], default=None) == -1 and _to_int(row["rawid2"], default=None) == 0:
+        t = _to_int(row["trk_type"], default=None)
+        if t == 0:
+            return "Muon"
+        if t == 1:
             return "prediction"
-        return "Muon"
+        if t == -1:
+            return "Reference"
+        return "Unknown"
 
     def show_current(self):
-        row = self.rows[self.index]
-        result = self.results[self.index]
+        if not self.view:
+            self.type_var.set("")
+            for name in DISPLAY_FIELDS:
+                self.value_vars[name].set("")
+            self.progress_var.set(f"[{self.mode}] 0 / 0   (no rows for this type)   ->  {self.output_path}")
+            self.comment_frame.pack_forget()
+            self.answer_var.set("")
+            for b in self.buttons:
+                b.config(state="disabled", bg=OPTION_BUTTON_BG)
+            return
+        for b in self.buttons:
+            b.config(state="normal")
+
+        idx = self.view[self.pos]
+        row = self.rows[idx]
+        result = self.results[idx]
 
         self.type_var.set(self._row_type(row))
-        answered = sum(1 for r in self.results if r is not None)
+        answered = sum(1 for i in self.view if self.results[i] is not None)
+        if self.mode == "Reference":
+            # Referenceはトラック数ではなくイベント数(eventidの種類数)を分母にする
+            total_for_progress = len({self.rows[i]["eventid"] for i in self.view})
+        else:
+            total_for_progress = len(self.view)
         self.progress_var.set(
-            f"{self.index + 1} / {len(self.rows)}   ({answered} / {len(self.rows)} answered)   ->  {self.output_path}"
+            f"[{self.mode}] {self.pos + 1} / {len(self.view)}   ({answered} / {total_for_progress} answered)   ->  {self.output_path}"
         )
-        for name in FIELDS:
-            self.value_vars[name].set(row[name])
+        for name in DISPLAY_FIELDS:
+            if name in ("ph1", "ph2"):
+                self.value_vars[name].set(_format_ph(row[name]))
+            else:
+                self.value_vars[name].set(row[name])
 
         self.comment_frame.pack_forget()
         self.comment_entry.delete(0, tk.END)
@@ -298,10 +374,12 @@ class RawidMapChecker(tk.Tk):
     # 選択・コメント
     # ------------------------------------------------------------------
     def on_select(self, choice):
+        if not self.view:
+            return
         if choice == 6:
             self.comment_frame.pack(pady=10)
             self.comment_entry.delete(0, tk.END)
-            existing = self.results[self.index]
+            existing = self.results[self.view[self.pos]]
             if existing and existing[0] == 6:
                 self.comment_entry.insert(0, existing[1])
             self.comment_entry.focus_set()
@@ -319,23 +397,30 @@ class RawidMapChecker(tk.Tk):
         self.focus_set()
 
     def _set_result(self, choice, comment):
-        self.results[self.index] = (choice, comment)
+        self.results[self.view[self.pos]] = (choice, comment)
         self._save_all()
-        self.index = min(self.index + 1, len(self.rows) - 1)
+        self.pos = min(self.pos + 1, len(self.view) - 1)
         self.show_current()
         self.focus_set()
 
     # ------------------------------------------------------------------
     # 前後移動・イベント番号ジャンプ
     # ------------------------------------------------------------------
+    def show_scan_area_info(self):
+        if not self.view:
+            return
+        row = self.rows[self.view[self.pos]]
+        info = "\n".join(f"{name}: {row[name]}" for name in SCAN_AREA_FIELDS)
+        messagebox.showinfo("Scan Area Info", info)
+
     def go_prev(self):
-        if self.index > 0:
-            self.index -= 1
+        if self.pos > 0:
+            self.pos -= 1
             self.show_current()
 
     def go_next(self):
-        if self.index < len(self.rows) - 1:
-            self.index += 1
+        if self.pos < len(self.view) - 1:
+            self.pos += 1
             self.show_current()
 
     def jump_to_event(self):
@@ -347,14 +432,14 @@ class RawidMapChecker(tk.Tk):
         except ValueError:
             self.jump_status_var.set("invalid number")
             return
-        for i, row in enumerate(self.rows):
-            if _to_int(row["eventid"]) == target:
-                self.index = i
+        for p, i in enumerate(self.view):
+            if _to_int(self.rows[i]["eventid"]) == target:
+                self.pos = p
                 self.show_current()
                 self.event_entry.delete(0, tk.END)
                 self.focus_set()
                 return
-        self.jump_status_var.set(f"eventid {target} not found")
+        self.jump_status_var.set(f"eventid {target} not found in {self.mode} view")
 
     # ------------------------------------------------------------------
     # 終了
