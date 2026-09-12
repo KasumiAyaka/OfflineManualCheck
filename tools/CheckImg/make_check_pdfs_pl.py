@@ -127,7 +127,7 @@ def build_composite(pl_dir, header_font, label_font):
     for im in pattern_imgs:
         w, h = fit_size(im.width, im.height, col_w, slot_h)
         x = left_x + (col_w - w) / 2
-        canvas.paste(im.resize((w, h)), (round(x), round(y)))
+        canvas.paste(im.resize((w, h), Image.LANCZOS), (round(x), round(y)))
         y += h + GAP_ROW
 
     # Right column: lens result.png on top, stage result.png on bottom.
@@ -137,7 +137,7 @@ def build_composite(pl_dir, header_font, label_font):
         w, h = fit_size(im.width, im.height, col_w, slot_h)
         x = right_x + (col_w - w) / 2
         px, py = round(x), round(y)
-        canvas.paste(im.resize((w, h)), (px, py))
+        canvas.paste(im.resize((w, h), Image.LANCZOS), (px, py))
         _draw_label(draw, px, py, label, label_font)
         y += h + GAP_ROW
 
