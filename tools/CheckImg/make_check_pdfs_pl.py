@@ -1,5 +1,6 @@
 import argparse
 import glob
+import json
 import multiprocessing as mp
 import os
 import shutil
@@ -12,6 +13,7 @@ PER_DIR_PDF_NAME = "check.pdf"
 PATTERN_FILES = ["pattern_match_0.png", "pattern_match_1.png", "pattern_match_2.png"]
 RESULT_FILE = "result.png"
 SUBDIRS = ["lens", "stage"]
+TOMOGRAPHIC_JSON_FILE = "tomographic_images.json"
 
 FONT_PATH = r"C:\Windows\Fonts\arial.ttf"
 HEADER_FONT_SIZE = 28
@@ -43,6 +45,17 @@ def _init_worker():
     except Exception:
         _HEADER_FONT = ImageFont.load_default()
         _LABEL_FONT = ImageFont.load_default()
+
+
+def read_affine_param_text(pl_dir):
+    """Read AffineParam from <pl_dir>/tomographic_images.json, formatted for display."""
+    json_path = os.path.join(pl_dir, TOMOGRAPHIC_JSON_FILE)
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            affine_param = json.load(f)["AffineParam"]
+        return "AffineParam: [" + ", ".join(f"{v:.6f}" for v in affine_param) + "]"
+    except Exception:
+        return f"AffineParam: ({TOMOGRAPHIC_JSON_FILE} not found)"
 
 
 def find_pattern_source(pl_dir):
@@ -87,16 +100,22 @@ def build_composite(pl_dir, header_font, label_font):
         if os.path.exists(result_path):
             result_items.append((sub, Image.open(result_path).convert("RGB")))
 
+    affine_text = read_affine_param_text(pl_dir)
+
     canvas = Image.new("RGB", (PAGE_W, PAGE_H), "white")
     draw = ImageDraw.Draw(canvas)
 
-    header_bbox = draw.textbbox((0, 0), pl_dir, font=header_font)
-    header_h = (header_bbox[3] - header_bbox[1]) + HEADER_PAD * 2
-    draw.text(
-        (MARGIN, MARGIN + HEADER_PAD - header_bbox[1]), pl_dir, fill="black", font=header_font
-    )
+    y = MARGIN
 
-    body_top = MARGIN + header_h
+    header_bbox = draw.textbbox((0, 0), pl_dir, font=header_font)
+    draw.text((MARGIN, y + HEADER_PAD - header_bbox[1]), pl_dir, fill="black", font=header_font)
+    y += (header_bbox[3] - header_bbox[1]) + HEADER_PAD * 2
+
+    affine_bbox = draw.textbbox((0, 0), affine_text, font=label_font)
+    draw.text((MARGIN, y + HEADER_PAD - affine_bbox[1]), affine_text, fill="black", font=label_font)
+    y += (affine_bbox[3] - affine_bbox[1]) + HEADER_PAD * 2
+
+    body_top = y
     body_h = PAGE_H - body_top - MARGIN
     col_w = (PAGE_W - 2 * MARGIN - GAP_COL) / 2
     left_x = MARGIN
