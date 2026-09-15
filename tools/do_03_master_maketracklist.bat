@@ -24,6 +24,8 @@ gawk "{print $1}" TrackList\btrklist%1_rawidmap.txt > tmp%1_1.txt
 sort -k 1n tmp%1_1.txt > tmp%1_2.txt
 uniq tmp%1_2.txt > TrackList\PLlist%1.txt
 del tmp%1_*.txt
+if not exist PLlist mkdit PLlist
+move PLlist%1%.txt PLlist
 
 popd
 

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RawidMapCheckerの使い方</title>
+<meta name="description" content="ニュートリノ実験の飛跡目視チェックツール RawidMapChecker の利用ガイド（日本語版）">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#eef2f3; --surface:#ffffff; --surface-alt:#e4eaec;
+    --ink:#16212b; --ink-muted:#54646d;
+    --accent:#0d6e64; --accent-strong:#0a5750; --accent-soft:#d9efec;
+    --border:#d3dbde; --amber:#9a6400; --amber-soft:#f3e6cf;
+    --code-ink:#1f2a33;
+    --shadow: 0 1px 2px rgba(15,30,32,.06), 0 8px 24px -16px rgba(15,30,32,.25);
+  }
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]){
+      --bg:#0f1519; --surface:#161e24; --surface-alt:#1d2830;
+      --ink:#e7edf0; --ink-muted:#9fb2bb;
+      --accent:#4fd6c9; --accent-strong:#7fe7dc; --accent-soft:#163531;
+      --border:#2a3841; --amber:#e3ac57; --amber-soft:#3a2f18;
+      --code-ink:#dbe7ec;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6);
+    }
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--ink); margin:0;
+    font-family:"IBM Plex Sans", system-ui, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent-soft); color:var(--ink); }
+  a{ color:var(--accent-strong); }
+  h1,h2,h3{ font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:700; text-wrap:balance; color:var(--ink); margin:0; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+  .eyebrow{ font-family:"IBM Plex Mono", monospace; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-strong); }
+
+  .masthead{ border-bottom:1px solid var(--border); background:linear-gradient(180deg, var(--surface), var(--bg)); }
+  .masthead-inner{ max-width:880px; margin:0 auto; padding:52px 28px 30px; display:flex; flex-direction:column; gap:14px; }
+  .masthead h1{ font-size:clamp(1.9rem, 4vw, 2.5rem); letter-spacing:-.01em; }
+  .masthead p.lede{ max-width:64ch; color:var(--ink-muted); font-size:1.08rem; }
+  .nameplate{ margin-top:8px; border:1px solid var(--border); border-radius:10px; background:var(--surface-alt); display:flex; flex-wrap:wrap; overflow:hidden; }
+  .nameplate div{ padding:10px 18px; border-right:1px solid var(--border); flex:1 1 auto; min-width:170px; }
+  .nameplate div:last-child{ border-right:none; }
+  .nameplate .k{ font-family:"IBM Plex Mono", monospace; font-size:.68rem; letter-spacing:.1em; color:var(--ink-muted); text-transform:uppercase; display:block; margin-bottom:3px;}
+  .nameplate .v{ font-size:.92rem; color:var(--ink); }
+
+  nav.toc{ position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(6px); border-bottom:1px solid var(--border); }
+  nav.toc .toc-inner{ max-width:880px; margin:0 auto; padding:0 28px; display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
+  nav.toc .toc-inner::-webkit-scrollbar{ display:none; }
+  nav.toc a{ flex:0 0 auto; font-family:"IBM Plex Mono", monospace; font-size:.74rem; color:var(--ink-muted); text-decoration:none; padding:12px 14px; border-bottom:2px solid transparent; white-space:nowrap; }
+  nav.toc a:hover{ color:var(--ink); }
+
+  main{ max-width:880px; margin:0 auto; padding:10px 28px 90px; }
+  section{ padding-top:50px; scroll-margin-top:52px; }
+  section + section{ border-top:1px solid var(--border); }
+  .sec-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:10px; }
+  .sec-num{ font-family:"IBM Plex Mono", monospace; color:var(--accent-strong); font-size:1rem; }
+  h2{ font-size:1.45rem; }
+  section > p{ max-width:66ch; color:var(--ink); margin:14px 0; }
+  section > p.muted{ color:var(--ink-muted); }
+  h3{ font-size:1.02rem; margin:24px 0 10px; padding-left:12px; border-left:3px solid var(--accent); }
+
+  ol.steps, ul.spec{ margin:14px 0; padding-left:1.4em; max-width:66ch; }
+  ol.steps li, ul.spec li{ margin:9px 0; }
+  ul.spec li::marker{ color:var(--accent-strong); }
+  ol.steps{ counter-reset:step; list-style:none; padding-left:0; }
+  ol.steps li{ counter-increment:step; position:relative; padding-left:2.4em; }
+  ol.steps li::before{
+    content: counter(step);
+    position:absolute; left:0; top:.05em;
+    width:1.7em; height:1.7em; border-radius:999px;
+    background:var(--accent-soft); color:var(--accent-strong);
+    font-family:"IBM Plex Mono", monospace; font-weight:700; font-size:.85rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .tablewrap{ overflow-x:auto; margin:16px 0 8px; border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow);}
+  table{ border-collapse:collapse; width:100%; min-width:480px; background:var(--surface); }
+  thead th{ text-align:left; font-family:"IBM Plex Mono", monospace; font-size:.72rem; letter-spacing:.06em; color:var(--ink-muted); background:var(--surface-alt); padding:10px 14px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  tbody td{ padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; font-size:.94rem; }
+  tbody tr:last-child td{ border-bottom:none; }
+  td.mono, th.mono{ font-family:"IBM Plex Mono", monospace; color:var(--code-ink); font-size:.86rem; }
+  td.num{ font-variant-numeric:tabular-nums; text-align:center; }
+
+  kbd{ font-family:"IBM Plex Mono", monospace; font-size:.78rem; background:var(--surface-alt); border:1px solid var(--border); border-bottom-width:2px; border-radius:5px; padding:1px 7px; color:var(--ink); }
+
+  .callout{ border:1px solid var(--border); border-left:3px solid var(--accent); background:var(--surface); border-radius:0 10px 10px 0; padding:16px 20px; margin:18px 0; box-shadow:var(--shadow); }
+  .callout p{ margin:0; }
+  .callout .eyebrow{ display:block; margin-bottom:6px; }
+
+  /* 画面マップ */
+  .screenmap{ border:1px solid var(--border); border-radius:12px; background:var(--surface); box-shadow:var(--shadow); padding:16px; margin:20px 0; font-family:"IBM Plex Mono", monospace; font-size:.78rem; }
+  .sm-row{ display:flex; gap:8px; align-items:stretch; margin-bottom:8px; }
+  .sm-box{ border:1.5px dashed var(--border); border-radius:8px; padding:8px 10px; background:var(--surface-alt); color:var(--ink-muted); display:flex; align-items:center; gap:6px; }
+  .sm-num{ display:inline-flex; align-items:center; justify-content:center; width:1.5em; height:1.5em; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; flex:0 0 auto; }
+  .sm-grow{ flex:1 1 auto; }
+  .sm-table{ display:grid; grid-template-columns:repeat(9,1fr); gap:3px; }
+  .sm-table div{ border:1px solid var(--border); background:var(--surface); border-radius:4px; padding:4px; text-align:center; font-size:.68rem; color:var(--ink-muted); }
+  .sm-buttons{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; }
+  .sm-buttons div{ border:1.5px solid var(--accent); background:var(--accent-soft); color:var(--accent-strong); border-radius:6px; padding:6px 4px; text-align:center; font-size:.68rem; }
+
+  footer{ max-width:880px; margin:0 auto; padding:34px 28px 70px; color:var(--ink-muted); font-size:.82rem; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="eyebrow">NINJA E71a</span>
+    <h1>RawidMapCheckerの使い方</h1>
+    <p class="lede">解析パイプラインが抽出した飛跡候補を1件ずつ目視確認し、乳剤の両面に飛跡が実在するかを記録するためのツールです。この文書は、初めて使う人でも一通り操作できるようにまとめたものです。</p>
+    <div class="nameplate">
+      <div><span class="k">対象読者</span><span class="v">NINJA解析に参加する大学院生・研究者</span></div>
+      <div><span class="k">必要環境</span><span class="v">Python 3（tkinter同梱）。追加インストール不要</span></div>
+      <div><span class="k">配布ファイル</span><span class="v" class="mono">RawidMapChecker.py 1本</span></div>
+      <div><span class="k">対応OS</span><span class="v">Windows / macOS</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#what">01 これは何か</a>
+    <a href="#prep">02 準備</a>
+    <a href="#start">03 起動</a>
+    <a href="#screen">04 画面の見方</a>
+    <a href="#judge">05 判定の選び方</a>
+    <a href="#ops">06 操作一覧</a>
+    <a href="#save">07 保存について</a>
+    <a href="#faq">08 困ったときは</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="what">
+  <div class="sec-head"><span class="sec-num">01</span><h2>このツールは何をするものか</h2></div>
+  <p>オフラインマニュアルチェックでは、<strong>ミューオンとそのリファレンストラック</strong>、および<strong>ミューオンを外挿した位置とそのリファレンストラック</strong>について、画像を確認します。RawidMapCheckerは、これら1件ずつの位置・角度情報を画面に表示し、あなたがマイクロスコープの画像などを見て「その位置に本当に飛跡（乳剤の粒）が存在するか」を6択で判定し、結果をテキストファイルに記録するためのツールです。</p>
+  <p class="muted">判定結果は解析の品質チェック・後段の選別に使われます。迷ったときは無理に判断せず「Cannot judge.」を選んでください。</p>
+</section>
+
+<section id="prep">
+  <div class="sec-head"><span class="sec-num">02</span><h2>準備するもの</h2></div>
+  <ul class="spec">
+    <li><strong>Python 3</strong> がインストールされたPC（Windows / macOS どちらも可）。公式インストーラを使っていれば <code class="mono">tkinter</code> は最初から使えます。</li>
+    <li><strong><code class="mono">RawidMapChecker.py</code></strong> ファイル本体（担当者から配布されます）。</li>
+    <li>チェック対象の <strong><code class="mono">*_rawidmap.txt</code></strong> ファイル（担当のECC・プレートに対応するもの。解析リーダーから指示されます）。</li>
+  </ul>
+  <div class="callout">
+    <span class="eyebrow">動作確認</span>
+    <p>ターミナル（Windowsはコマンドプロンプト/PowerShell、Macはターミナル.app）で <code class="mono">python3 -m tkinter</code>（Windowsは <code class="mono">python -m tkinter</code>）を実行し、小さなテストウィンドウが開けば準備完了です。</p>
+  </div>
+</section>
+
+<section id="start">
+  <div class="sec-head"><span class="sec-num">03</span><h2>起動方法</h2></div>
+  <ol class="steps">
+    <li><code class="mono">RawidMapChecker.py</code> を作業フォルダに置く。</li>
+    <li>ターミナルでそのフォルダに移動し、次のコマンドを実行する。
+      <div class="tablewrap" style="margin-top:8px;">
+        <table>
+          <thead><tr><th>OS</th><th>コマンド</th></tr></thead>
+          <tbody>
+            <tr><td>Windows</td><td class="mono">python RawidMapChecker.py</td></tr>
+            <tr><td>macOS</td><td class="mono">python3 RawidMapChecker.py</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>ファイル選択ダイアログが開くので、チェック対象の <code class="mono">*_rawidmap.txt</code> を選ぶ。</li>
+    <li>同名の <code class="mono">*_result.txt</code>（結果ファイル）が既にある場合、以下の3択が出る。
+      <div class="tablewrap" style="margin-top:8px;">
+        <table>
+          <thead><tr><th>選択肢</th><th>いつ使うか</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">Append</td><td>前回の続きから作業する（通常はこれ）</td></tr>
+            <tr><td class="mono">Overwrite</td><td>最初からやり直す（結果を消してよい場合のみ）</td></tr>
+            <tr><td class="mono">New file (numbered)</td><td>前回の結果は残したまま、別ファイルとして新規に始める</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="screen">
+  <div class="sec-head"><span class="sec-num">04</span><h2>画面の見方</h2></div>
+  <p>起動すると以下のような画面になります（実際のレイアウトの模式図）。</p>
+
+  <div class="screenmap">
+    <div class="sm-row">
+      <div class="sm-box"><span class="sm-num">1</span>Muon / prediction / Reference</div>
+      <div class="sm-grow"></div>
+      <div class="sm-box"><span class="sm-num">2</span>[Muon] [Reference]</div>
+    </div>
+    <div class="sm-row"><div class="sm-box sm-grow"><span class="sm-num">3</span>3 / 42 (1 / 42 answered) → ...\btrklist4_result.txt</div></div>
+    <div class="sm-row">
+      <div class="sm-grow">
+        <div class="sm-num" style="margin-bottom:4px;display:inline-flex;">4</div>
+        <div class="sm-table">
+          <div>eventid</div><div>PL</div><div>rawid1</div><div>ax</div><div>ay</div><div>x</div><div>y</div><div>VPH1(PH)</div><div>VPH2(PH)</div>
+        </div>
+      </div>
+    </div>
+    <div class="sm-row">
+      <div class="sm-grow">
+        <div class="sm-num" style="margin-bottom:4px;display:inline-flex;">5</div>
+        <div class="sm-buttons">
+          <div>1. Both exists</div><div>2. Only the lens side exists.</div><div>3. Only the stage side exists.</div>
+          <div>4. Neither exists.</div><div>5. Cannot judge.</div><div>6. Add comments.</div>
+        </div>
+      </div>
+    </div>
+    <div class="sm-row"><div class="sm-box sm-grow"><span class="sm-num">6</span>Current answer: ...</div></div>
+    <div class="sm-row"><div class="sm-box sm-grow"><span class="sm-num">7</span>終了 (Save &amp; Exit)</div></div>
+    <div class="sm-row">
+      <div class="sm-box"><span class="sm-num">8</span>Event: [____] Go / scan area info</div>
+      <div class="sm-grow"></div>
+      <div class="sm-box"><span class="sm-num">9</span>◀ Prev (,) / Next ▶ (.)</div>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>要素</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td class="mono num">1</td><td>種別表示</td><td>今表示している行が Muon（実在）/ prediction（外挿）/ Reference（近くのトラック）のどれかを示す</td></tr>
+        <tr><td class="mono num">2</td><td>モード切り替え</td><td><strong>Muon</strong>：実在＋外挿トラックを表示／<strong>Reference</strong>：近くのトラックのみ表示。チェック対象をここで切り替える</td></tr>
+        <tr><td class="mono num">3</td><td>進捗表示</td><td>選択中モードの中での現在位置・回答済み件数・保存先ファイル名</td></tr>
+        <tr><td class="mono num">4</td><td>情報テーブル</td><td>飛跡の位置(<code class="mono">ax,ay,x,y</code>)や写真情報(<code class="mono">VPH1(PH), VPH2(PH)</code>)。マイクロスコープでこの位置を探すのに使う</td></tr>
+        <tr><td class="mono num">5</td><td>判定ボタン</td><td>下記5節の6択</td></tr>
+        <tr><td class="mono num">6</td><td>現在の回答</td><td>すでに答えた行なら、その内容が表示される</td></tr>
+        <tr><td class="mono num">7</td><td>終了ボタン</td><td>保存してアプリを終了する</td></tr>
+        <tr><td class="mono num">8</td><td>イベント検索 / scan area info</td><td>イベント番号を入力してその行へ移動。「scan area info」で<code class="mono">zone</code>・<code class="mono">rawid2</code>をポップアップ表示</td></tr>
+        <tr><td class="mono num">9</td><td>前後移動</td><td>選択中モードの中で前後の行へ移動</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="eyebrow">prediction行のVPH表示について</span>
+    <p>外挿（prediction）トラックは自身の写真情報を持たないため、<code class="mono">VPH1(PH)</code> / <code class="mono">VPH2(PH)</code>には、同じイベント番号の実在（Muon）トラックの値が<span style="color:var(--amber); font-weight:600;">オレンジ色の参考値</span>として代わりに表示されます（テーブル下に注釈も出ます）。同じイベントの実在トラックが見つからない場合は<code class="mono">-1</code>のまま表示されます。</p>
+  </div>
+</section>
+
+<section id="judge">
+  <div class="sec-head"><span class="sec-num">05</span><h2>判定の選び方</h2></div>
+  <p>テーブルに表示された位置・角度をもとにマイクロスコープの画像を確認し、以下から1つ選びます。マウスでクリックするか、キーボードの数字キー（<kbd>1</kbd>〜<kbd>6</kbd>）でも選べます。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>キー</th><th>選択肢（画面表示のまま）</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td class="mono num">1</td><td>Both exists</td><td>lens側・stage側の両面に飛跡が存在する</td></tr>
+        <tr><td class="mono num">2</td><td>Only the lens side exists.</td><td>lens側のみ飛跡が存在する</td></tr>
+        <tr><td class="mono num">3</td><td>Only the stage side exists.</td><td>stage側のみ飛跡が存在する</td></tr>
+        <tr><td class="mono num">4</td><td>Neither exists.</td><td>どちらの面にも飛跡が見当たらない</td></tr>
+        <tr><td class="mono num">5</td><td>Cannot judge.</td><td>画像が不鮮明等で判断できない</td></tr>
+        <tr><td class="mono num">6</td><td>Add comments.</td><td>上記に当てはまらない場合。自由記述のコメント欄が開く（<kbd>Enter</kbd>で確定、<kbd>Esc</kbd>で取り消し）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>選ぶと自動的に次の行へ進みます。前の行に戻って選び直すことも可能で、その場合は選択が上書き保存されます。</p>
+</section>
+
+<section id="ops">
+  <div class="sec-head"><span class="sec-num">06</span><h2>操作一覧</h2></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>操作</th><th>マウス</th><th>キーボード</th></tr></thead>
+      <tbody>
+        <tr><td>判定1〜5を選ぶ</td><td>ボタンをクリック</td><td><kbd>1</kbd>〜<kbd>5</kbd></td></tr>
+        <tr><td>判定6（コメント）を選ぶ</td><td>「6. Add comments.」をクリック</td><td><kbd>6</kbd></td></tr>
+        <tr><td>前の行へ</td><td>「◀ Prev (,)」</td><td><kbd>,</kbd></td></tr>
+        <tr><td>次の行へ</td><td>「Next ▶ (.)」</td><td><kbd>.</kbd></td></tr>
+        <tr><td>イベント番号で探す</td><td>左下欄に入力して「Go」</td><td>入力欄で <kbd>Enter</kbd></td></tr>
+        <tr><td>zone・rawid2を見る</td><td>「scan area info」をクリック</td><td>—</td></tr>
+        <tr><td>Muon / Reference切替</td><td>右上のボタン</td><td>—</td></tr>
+        <tr><td>保存して終了</td><td>「終了 (Save &amp; Exit)」</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">矢印キー（←→）も割り当てられていますが、環境によっては反応しないことがあるため <kbd>,</kbd> <kbd>.</kbd> の利用を推奨します。</p>
+</section>
+
+<section id="save">
+  <div class="sec-head"><span class="sec-num">07</span><h2>保存について</h2></div>
+  <ul class="spec">
+    <li>判定するたびに自動的に保存されます。手動での保存操作は不要です。</li>
+    <li>結果ファイルは入力ファイル名の末尾を <code class="mono">_rawidmap</code> → <code class="mono">_result</code> に置き換えた名前（例: <code class="mono">btrklist4_rawidmap.txt</code> → <code class="mono">btrklist4_result.txt</code>）で、入力ファイルと同じフォルダに作られます。</li>
+    <li>作業を中断したいときは、いつでも「終了 (Save &amp; Exit)」またはウィンドウを閉じて構いません。次回同じ入力ファイルを開き「Append」を選べば、続きから再開できます。</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <div class="sec-head"><span class="sec-num">08</span><h2>困ったときは</h2></div>
+  <div class="callout">
+    <span class="eyebrow">「eventid ... not found in ... view」と出る</span>
+    <p>イベント検索は<strong>選択中のモード（Muon / Reference）の中だけ</strong>を探します。目的の行が別モードにある場合は、右上でモードを切り替えてから検索してください。</p>
+  </div>
+  <div class="callout">
+    <span class="eyebrow">判定ボタンが押せない（グレーアウトしている）</span>
+    <p>選択中のモードに該当する行が1件もありません（例: Referenceを選んだがファイルにReference行が無い）。もう一方のモードに切り替えてください。</p>
+  </div>
+  <div class="callout">
+    <span class="eyebrow">ウィンドウが開かない・エラーが出る</span>
+    <p>Pythonのバージョンや<code class="mono">tkinter</code>の有無を確認してください（<a href="#prep">02 準備</a>参照）。解決しない場合は配布元の担当者に、表示されたエラーメッセージ全文を添えて連絡してください。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>本資料はNINJA E71a解析パイプラインの一部として配布されるRawidMapCheckerの利用ガイドです。ツールや手順についての質問は、配布元の解析担当者までお願いします。</p>
+</footer>
+
+</body>
+</html>

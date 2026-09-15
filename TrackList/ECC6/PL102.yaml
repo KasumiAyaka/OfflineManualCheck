@@ -1,0 +1,20 @@
+  - Plate: 102
+    Track: [-0.4597,-0.034,40024.2,53741.5]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event08719/PL102
+  - Plate: 102
+    RawID: 269791
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event08719/PL102
+  - Plate: 102
+    Track: [-0.4597,-0.034,40024.2,53741.5]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event08719/PL102
+  - Plate: 102
+    RawID: 44261
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event08719/PL102

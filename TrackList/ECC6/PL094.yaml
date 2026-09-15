@@ -1,0 +1,20 @@
+  - Plate: 94
+    Track: [-0.0703,-0.1958,36881.3,64747.9]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event07169/PL094
+  - Plate: 94
+    RawID: 69791
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event07169/PL094
+  - Plate: 94
+    Track: [-0.0703,-0.1958,36881.3,64747.9]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event07169/PL094
+  - Plate: 94
+    RawID: 302918
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event07169/PL094

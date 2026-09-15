@@ -1,0 +1,56 @@
+  - Plate: 117
+    RawID: 95847
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event09960/PL117
+  - Plate: 117
+    RawID: 502698
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event09960/PL117
+  - Plate: 117
+    RawID: 95847
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event09960/PL117
+  - Plate: 117
+    RawID: 338021
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event09960/PL117
+  - Plate: 117
+    Track: [0.0573,-0.0168,16305.4,56398.3]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event07633/PL117
+  - Plate: 117
+    RawID: 270595
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event07633/PL117
+  - Plate: 117
+    Track: [0.0573,-0.0168,16305.4,56398.3]
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event07633/PL117
+  - Plate: 117
+    RawID: 475319
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event07633/PL117
+  - Plate: 117
+    RawID: 3699096
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event03802/PL117
+  - Plate: 117
+    RawID: 163912
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event03802/PL117
+  - Plate: 117
+    RawID: 3699096
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event03802/PL117
+  - Plate: 117
+    RawID: 163912
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event03802/PL117

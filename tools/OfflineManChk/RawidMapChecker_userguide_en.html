@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RawidMapChecker User Guide</title>
+<meta name="description" content="User guide for RawidMapChecker, a visual track-verification tool for neutrino emulsion analysis (English)">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#eef2f3; --surface:#ffffff; --surface-alt:#e4eaec;
+    --ink:#16212b; --ink-muted:#54646d;
+    --accent:#0d6e64; --accent-strong:#0a5750; --accent-soft:#d9efec;
+    --border:#d3dbde; --amber:#9a6400; --amber-soft:#f3e6cf;
+    --code-ink:#1f2a33;
+    --shadow: 0 1px 2px rgba(15,30,32,.06), 0 8px 24px -16px rgba(15,30,32,.25);
+  }
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]){
+      --bg:#0f1519; --surface:#161e24; --surface-alt:#1d2830;
+      --ink:#e7edf0; --ink-muted:#9fb2bb;
+      --accent:#4fd6c9; --accent-strong:#7fe7dc; --accent-soft:#163531;
+      --border:#2a3841; --amber:#e3ac57; --amber-soft:#3a2f18;
+      --code-ink:#dbe7ec;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6);
+    }
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--ink); margin:0;
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent-soft); color:var(--ink); }
+  a{ color:var(--accent-strong); }
+  h1,h2,h3{ font-family:"IBM Plex Sans Condensed", sans-serif; font-weight:700; text-wrap:balance; color:var(--ink); margin:0; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+  .eyebrow{ font-family:"IBM Plex Mono", monospace; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-strong); }
+
+  .masthead{ border-bottom:1px solid var(--border); background:linear-gradient(180deg, var(--surface), var(--bg)); }
+  .masthead-inner{ max-width:880px; margin:0 auto; padding:52px 28px 30px; display:flex; flex-direction:column; gap:14px; }
+  .masthead h1{ font-size:clamp(1.8rem, 4vw, 2.4rem); letter-spacing:-.01em; }
+  .masthead p.lede{ max-width:64ch; color:var(--ink-muted); font-size:1.08rem; }
+  .nameplate{ margin-top:8px; border:1px solid var(--border); border-radius:10px; background:var(--surface-alt); display:flex; flex-wrap:wrap; overflow:hidden; }
+  .nameplate div{ padding:10px 18px; border-right:1px solid var(--border); flex:1 1 auto; min-width:170px; }
+  .nameplate div:last-child{ border-right:none; }
+  .nameplate .k{ font-family:"IBM Plex Mono", monospace; font-size:.68rem; letter-spacing:.1em; color:var(--ink-muted); text-transform:uppercase; display:block; margin-bottom:3px;}
+  .nameplate .v{ font-size:.92rem; color:var(--ink); }
+
+  nav.toc{ position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(6px); border-bottom:1px solid var(--border); }
+  nav.toc .toc-inner{ max-width:880px; margin:0 auto; padding:0 28px; display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
+  nav.toc .toc-inner::-webkit-scrollbar{ display:none; }
+  nav.toc a{ flex:0 0 auto; font-family:"IBM Plex Mono", monospace; font-size:.74rem; color:var(--ink-muted); text-decoration:none; padding:12px 14px; border-bottom:2px solid transparent; white-space:nowrap; }
+  nav.toc a:hover{ color:var(--ink); }
+
+  main{ max-width:880px; margin:0 auto; padding:10px 28px 90px; }
+  section{ padding-top:50px; scroll-margin-top:52px; }
+  section + section{ border-top:1px solid var(--border); }
+  .sec-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:10px; }
+  .sec-num{ font-family:"IBM Plex Mono", monospace; color:var(--accent-strong); font-size:1rem; }
+  h2{ font-size:1.45rem; }
+  section > p{ max-width:66ch; color:var(--ink); margin:14px 0; }
+  section > p.muted{ color:var(--ink-muted); }
+  h3{ font-size:1.02rem; margin:24px 0 10px; padding-left:12px; border-left:3px solid var(--accent); }
+
+  ol.steps, ul.spec{ margin:14px 0; padding-left:1.4em; max-width:66ch; }
+  ol.steps li, ul.spec li{ margin:9px 0; }
+  ul.spec li::marker{ color:var(--accent-strong); }
+  ol.steps{ counter-reset:step; list-style:none; padding-left:0; }
+  ol.steps li{ counter-increment:step; position:relative; padding-left:2.4em; }
+  ol.steps li::before{
+    content: counter(step);
+    position:absolute; left:0; top:.05em;
+    width:1.7em; height:1.7em; border-radius:999px;
+    background:var(--accent-soft); color:var(--accent-strong);
+    font-family:"IBM Plex Mono", monospace; font-weight:700; font-size:.85rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .tablewrap{ overflow-x:auto; margin:16px 0 8px; border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow);}
+  table{ border-collapse:collapse; width:100%; min-width:480px; background:var(--surface); }
+  thead th{ text-align:left; font-family:"IBM Plex Mono", monospace; font-size:.72rem; letter-spacing:.06em; color:var(--ink-muted); background:var(--surface-alt); padding:10px 14px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  tbody td{ padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; font-size:.94rem; }
+  tbody tr:last-child td{ border-bottom:none; }
+  td.mono, th.mono{ font-family:"IBM Plex Mono", monospace; color:var(--code-ink); font-size:.86rem; }
+  td.num{ font-variant-numeric:tabular-nums; text-align:center; }
+
+  kbd{ font-family:"IBM Plex Mono", monospace; font-size:.78rem; background:var(--surface-alt); border:1px solid var(--border); border-bottom-width:2px; border-radius:5px; padding:1px 7px; color:var(--ink); }
+
+  .callout{ border:1px solid var(--border); border-left:3px solid var(--accent); background:var(--surface); border-radius:0 10px 10px 0; padding:16px 20px; margin:18px 0; box-shadow:var(--shadow); }
+  .callout p{ margin:0; }
+  .callout .eyebrow{ display:block; margin-bottom:6px; }
+
+  /* Screen map */
+  .screenmap{ border:1px solid var(--border); border-radius:12px; background:var(--surface); box-shadow:var(--shadow); padding:16px; margin:20px 0; font-family:"IBM Plex Mono", monospace; font-size:.78rem; }
+  .sm-row{ display:flex; gap:8px; align-items:stretch; margin-bottom:8px; }
+  .sm-box{ border:1.5px dashed var(--border); border-radius:8px; padding:8px 10px; background:var(--surface-alt); color:var(--ink-muted); display:flex; align-items:center; gap:6px; }
+  .sm-num{ display:inline-flex; align-items:center; justify-content:center; width:1.5em; height:1.5em; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; flex:0 0 auto; }
+  .sm-grow{ flex:1 1 auto; }
+  .sm-table{ display:grid; grid-template-columns:repeat(9,1fr); gap:3px; }
+  .sm-table div{ border:1px solid var(--border); background:var(--surface); border-radius:4px; padding:4px; text-align:center; font-size:.68rem; color:var(--ink-muted); }
+  .sm-buttons{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; }
+  .sm-buttons div{ border:1.5px solid var(--accent); background:var(--accent-soft); color:var(--accent-strong); border-radius:6px; padding:6px 4px; text-align:center; font-size:.68rem; }
+
+  footer{ max-width:880px; margin:0 auto; padding:34px 28px 70px; color:var(--ink-muted); font-size:.82rem; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="eyebrow">NINJA E71a</span>
+    <h1>RawidMapChecker User Guide</h1>
+    <p class="lede">A tool for visually reviewing candidate tracks extracted by the analysis pipeline and recording whether the emulsion track physically exists on both sides. This guide walks a first-time user through the whole process.</p>
+    <div class="nameplate">
+      <div><span class="k">Audience</span><span class="v">Graduate students and researchers on NINJA analysis</span></div>
+      <div><span class="k">Requirements</span><span class="v">Python 3 (tkinter included) — no extra installs</span></div>
+      <div><span class="k">You receive</span><span class="v" class="mono">One file: RawidMapChecker.py</span></div>
+      <div><span class="k">Platforms</span><span class="v">Windows / macOS</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#what">01 What it does</a>
+    <a href="#prep">02 Before you start</a>
+    <a href="#start">03 Launching it</a>
+    <a href="#screen">04 The screen</a>
+    <a href="#judge">05 Making a judgment</a>
+    <a href="#ops">06 Controls</a>
+    <a href="#save">07 Saving</a>
+    <a href="#faq">08 Troubleshooting</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="what">
+  <div class="sec-head"><span class="sec-num">01</span><h2>What this tool does</h2></div>
+  <p>The offline manual check covers two pairs of images: a <strong>muon track and its reference track</strong>, and a <strong>muon's extrapolated position and its reference track</strong>. RawidMapChecker shows you these candidates one at a time, with their position and angle, so you can look at the corresponding microscope image and judge whether a track (a grain of emulsion) actually exists there. Your judgment — one of six choices — is written to a plain text file.</p>
+  <p class="muted">These judgments feed into downstream quality checks and selection. If you're not sure, don't force a call — use "Cannot judge."</p>
+</section>
+
+<section id="prep">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Before you start</h2></div>
+  <ul class="spec">
+    <li><strong>Python 3</strong> installed on your machine (Windows or macOS). If you used the official installer, <code class="mono">tkinter</code> is already available.</li>
+    <li>The <strong><code class="mono">RawidMapChecker.py</code></strong> file itself (you'll be given this).</li>
+    <li>The <strong><code class="mono">*_rawidmap.txt</code></strong> file you're assigned to check (for your ECC/plates — your analysis lead will tell you which one).</li>
+  </ul>
+  <div class="callout">
+    <span class="eyebrow">Quick check</span>
+    <p>Open a terminal and run <code class="mono">python3 -m tkinter</code> (on Windows, <code class="mono">python -m tkinter</code>). If a small test window pops up, you're ready to go.</p>
+  </div>
+</section>
+
+<section id="start">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Launching it</h2></div>
+  <ol class="steps">
+    <li>Put <code class="mono">RawidMapChecker.py</code> in a working folder.</li>
+    <li>Open a terminal in that folder and run:
+      <div class="tablewrap" style="margin-top:8px;">
+        <table>
+          <thead><tr><th>OS</th><th>Command</th></tr></thead>
+          <tbody>
+            <tr><td>Windows</td><td class="mono">python RawidMapChecker.py</td></tr>
+            <tr><td>macOS</td><td class="mono">python3 RawidMapChecker.py</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>A file picker opens — choose the <code class="mono">*_rawidmap.txt</code> file you were assigned.</li>
+    <li>If a matching <code class="mono">*_result.txt</code> already exists, you'll be asked to choose one of three options.
+      <div class="tablewrap" style="margin-top:8px;">
+        <table>
+          <thead><tr><th>Option</th><th>When to use it</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">Append</td><td>Continue where you left off last time (usually this one)</td></tr>
+            <tr><td class="mono">Overwrite</td><td>Start over from scratch (only if you're fine losing the existing results)</td></tr>
+            <tr><td class="mono">New file (numbered)</td><td>Keep the previous results and start a fresh, separately numbered file</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="screen">
+  <div class="sec-head"><span class="sec-num">04</span><h2>The screen</h2></div>
+  <p>Here's a schematic of the layout you'll see after launching.</p>
+
+  <div class="screenmap">
+    <div class="sm-row">
+      <div class="sm-box"><span class="sm-num">1</span>Muon / prediction / Reference</div>
+      <div class="sm-grow"></div>
+      <div class="sm-box"><span class="sm-num">2</span>[Muon] [Reference]</div>
+    </div>
+    <div class="sm-row"><div class="sm-box sm-grow"><span class="sm-num">3</span>3 / 42 (1 / 42 answered) → ...\btrklist4_result.txt</div></div>
+    <div class="sm-row">
+      <div class="sm-grow">
+        <div class="sm-num" style="margin-bottom:4px;display:inline-flex;">4</div>
+        <div class="sm-table">
+          <div>eventid</div><div>PL</div><div>rawid1</div><div>ax</div><div>ay</div><div>x</div><div>y</div><div>VPH1(PH)</div><div>VPH2(PH)</div>
+        </div>
+      </div>
+    </div>
+    <div class="sm-row">
+      <div class="sm-grow">
+        <div class="sm-num" style="margin-bottom:4px;display:inline-flex;">5</div>
+        <div class="sm-buttons">
+          <div>1. Both exists</div><div>2. Only the lens side exists.</div><div>3. Only the stage side exists.</div>
+          <div>4. Neither exists.</div><div>5. Cannot judge.</div><div>6. Add comments.</div>
+        </div>
+      </div>
+    </div>
+    <div class="sm-row"><div class="sm-box sm-grow"><span class="sm-num">6</span>Current answer: ...</div></div>
+    <div class="sm-row"><div class="sm-box sm-grow"><span class="sm-num">7</span>Finish (Save &amp; Exit)</div></div>
+    <div class="sm-row">
+      <div class="sm-box"><span class="sm-num">8</span>Event: [____] Go / scan area info</div>
+      <div class="sm-grow"></div>
+      <div class="sm-box"><span class="sm-num">9</span>◀ Prev (,) / Next ▶ (.)</div>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Element</th><th>What it's for</th></tr></thead>
+      <tbody>
+        <tr><td class="mono num">1</td><td>Type label</td><td>Shows whether the current row is Muon (real), prediction (extrapolated), or Reference (nearby track)</td></tr>
+        <tr><td class="mono num">2</td><td>Mode switch</td><td><strong>Muon</strong>: shows real + extrapolated tracks. <strong>Reference</strong>: shows only the nearby reference tracks. This is what you're checking against</td></tr>
+        <tr><td class="mono num">3</td><td>Progress</td><td>Your position within the selected mode, how many you've answered, and where results are being saved</td></tr>
+        <tr><td class="mono num">4</td><td>Info table</td><td>Position (<code class="mono">ax, ay, x, y</code>) and shot info (<code class="mono">VPH1(PH)</code>, <code class="mono">VPH2(PH)</code>) — use these to find the spot under the microscope</td></tr>
+        <tr><td class="mono num">5</td><td>Judgment buttons</td><td>The six choices — see the next section</td></tr>
+        <tr><td class="mono num">6</td><td>Current answer</td><td>If this row was already answered, its result is shown here</td></tr>
+        <tr><td class="mono num">7</td><td>Finish button</td><td>Saves everything and closes the app</td></tr>
+        <tr><td class="mono num">8</td><td>Event search / scan area info</td><td>Jump to a row by event number. "scan area info" pops up the <code class="mono">zone</code> and <code class="mono">rawid2</code> values</td></tr>
+        <tr><td class="mono num">9</td><td>Prev / Next</td><td>Move to the previous or next row within the selected mode</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="eyebrow">VPH display on prediction rows</span>
+    <p>An extrapolated (prediction) track has no photo information of its own, so <code class="mono">VPH1(PH)</code> / <code class="mono">VPH2(PH)</code> instead show the values from the <strong>Muon</strong> track with the same event number, drawn in <span style="color:var(--amber); font-weight:600;">orange as a reference value</span> (a note also appears under the table). If no Muon track with that event number exists, the fields stay at <code class="mono">-1</code>.</p>
+  </div>
+</section>
+
+<section id="judge">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Making a judgment</h2></div>
+  <p>Using the position and angle shown in the table, check the corresponding microscope image and pick one of the following. Click with the mouse, or press the matching number key (<kbd>1</kbd>–<kbd>6</kbd>).</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Key</th><th>Option (exact on-screen text)</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="mono num">1</td><td>Both exists</td><td>The track exists on both the lens side and the stage side</td></tr>
+        <tr><td class="mono num">2</td><td>Only the lens side exists.</td><td>Only the lens-side track is there</td></tr>
+        <tr><td class="mono num">3</td><td>Only the stage side exists.</td><td>Only the stage-side track is there</td></tr>
+        <tr><td class="mono num">4</td><td>Neither exists.</td><td>No track visible on either side</td></tr>
+        <tr><td class="mono num">5</td><td>Cannot judge.</td><td>Can't tell — e.g. the image is unclear</td></tr>
+        <tr><td class="mono num">6</td><td>Add comments.</td><td>None of the above quite fits — a free-text comment box opens (<kbd>Enter</kbd> to confirm, <kbd>Esc</kbd> to cancel)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Choosing an option automatically advances to the next row. You can also go back and re-answer a row at any time — the new choice simply overwrites the saved one.</p>
+</section>
+
+<section id="ops">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Controls</h2></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Action</th><th>Mouse</th><th>Keyboard</th></tr></thead>
+      <tbody>
+        <tr><td>Choose 1–5</td><td>Click the button</td><td><kbd>1</kbd>–<kbd>5</kbd></td></tr>
+        <tr><td>Choose 6 (comment)</td><td>Click "6. Add comments."</td><td><kbd>6</kbd></td></tr>
+        <tr><td>Previous row</td><td>"◀ Prev (,)"</td><td><kbd>,</kbd></td></tr>
+        <tr><td>Next row</td><td>"Next ▶ (.)"</td><td><kbd>.</kbd></td></tr>
+        <tr><td>Jump to an event</td><td>Type it in the bottom-left box, click "Go"</td><td><kbd>Enter</kbd> in that box</td></tr>
+        <tr><td>See zone / rawid2</td><td>Click "scan area info"</td><td>—</td></tr>
+        <tr><td>Switch Muon / Reference</td><td>Top-right buttons</td><td>—</td></tr>
+        <tr><td>Save and quit</td><td>"Finish (Save &amp; Exit)"</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">Arrow keys (←/→) are also wired up, but they don't respond reliably in every environment — use <kbd>,</kbd> and <kbd>.</kbd> instead.</p>
+</section>
+
+<section id="save">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Saving</h2></div>
+  <ul class="spec">
+    <li>Every time you make a judgment, it's saved automatically — there's no manual save step.</li>
+    <li>The results file is named by replacing the trailing <code class="mono">_rawidmap</code> in the input filename with <code class="mono">_result</code> (e.g. <code class="mono">btrklist4_rawidmap.txt</code> → <code class="mono">btrklist4_result.txt</code>), in the same folder as the input.</li>
+    <li>You can stop at any time — click "Finish (Save &amp; Exit)" or just close the window. Next time, open the same input file and choose "Append" to pick up exactly where you left off.</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Troubleshooting</h2></div>
+  <div class="callout">
+    <span class="eyebrow">"eventid ... not found in ... view"</span>
+    <p>Event search only looks within the <strong>currently selected mode</strong> (Muon or Reference). If the row you're looking for is in the other mode, switch modes (top right) first, then search again.</p>
+  </div>
+  <div class="callout">
+    <span class="eyebrow">The judgment buttons are greyed out</span>
+    <p>There are no rows for the currently selected mode (e.g. you switched to Reference but the file has no Reference rows). Switch to the other mode.</p>
+  </div>
+  <div class="callout">
+    <span class="eyebrow">The window won't open, or you get an error</span>
+    <p>Check your Python version and that <code class="mono">tkinter</code> is available (see <a href="#prep">02 Before you start</a>). If that doesn't fix it, contact whoever gave you the tool and include the full error message.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>This guide covers RawidMapChecker as distributed as part of the NINJA E71a analysis pipeline. For questions about the tool or the procedure, contact your analysis coordinator.</p>
+</footer>
+
+</body>
+</html>

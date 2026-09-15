@@ -1,0 +1,18 @@
+  - Plate: 101
+    RawID: 2069450
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event08719/PL101
+  - Plate: 101
+    RawID: 288489
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event08719/PL101
+  - Plate: 101
+    RawID: 2069450
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event08719/PL101
+  - Plate: 101
+    RawID: 41754
+    Zone: 2
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event08719/PL101

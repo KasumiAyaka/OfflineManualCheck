@@ -1,0 +1,96 @@
+  - Plate: 63
+    RawID: 253329
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event05741/PL063
+  - Plate: 63
+    RawID: 253329
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event05741/PL063
+  - Plate: 63
+    RawID: 253329
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event05741/PL063
+  - Plate: 63
+    RawID: 253329
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event05741/PL063
+  - Plate: 63
+    Track: [-0.0021,-0.256,23679.8,52541.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event03475/PL063
+  - Plate: 63
+    RawID: 249368
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event03475/PL063
+  - Plate: 63
+    Track: [-0.3522,0.1262,44292.9,48770.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event07265/PL063
+  - Plate: 63
+    RawID: 248329
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event07265/PL063
+  - Plate: 63
+    Track: [-0.0021,-0.256,23679.8,52541.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event03475/PL063
+  - Plate: 63
+    RawID: 42957
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event03475/PL063
+  - Plate: 63
+    Track: [-0.3522,0.1262,44292.9,48770.6]
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event07265/PL063
+  - Plate: 63
+    RawID: 248329
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event07265/PL063
+  - Plate: 63
+    RawID: 4556382
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event02825/PL063
+  - Plate: 63
+    RawID: 372097
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event02825/PL063
+  - Plate: 63
+    Track: [-0.033,-0.0021,68137.1,47971.9]
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event03015/PL063
+  - Plate: 63
+    RawID: 906119
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event03015/PL063
+  - Plate: 63
+    RawID: 4556382
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event02825/PL063
+  - Plate: 63
+    RawID: 372097
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event02825/PL063
+  - Plate: 63
+    Track: [-0.033,-0.0021,68137.1,47971.9]
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event03015/PL063
+  - Plate: 63
+    RawID: 906270
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event03015/PL063

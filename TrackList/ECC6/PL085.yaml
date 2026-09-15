@@ -1,0 +1,18 @@
+  - Plate: 85
+    RawID: 3382330
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event04634/PL085
+  - Plate: 85
+    RawID: 69585
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event04634/PL085
+  - Plate: 85
+    RawID: 3382330
+    Surface: Both
+    SaveTo: G:ECC6/IMG/Event04634/PL085
+  - Plate: 85
+    RawID: 1188099
+    Zone: 4
+    Surface: Both
+    SaveTo: G:ECC6/Ref/IMG/Event04634/PL085
