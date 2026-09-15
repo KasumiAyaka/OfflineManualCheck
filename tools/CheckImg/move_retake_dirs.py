@@ -21,10 +21,12 @@ moved to:
 (<ScanData> is taken to be the parent of the ChkRes.txt's directory; the
 "/Ref" segment is included only for a "_Ref" ChkRes file.)
 
-A line whose choice is "l:?" is moved the same way, but the PL folder is
-renamed to lowercase with a "_chk" suffix at the destination (e.g. "PL025"
--> "pl025_chk"), so it's easy to tell "Retake" and "?" entries apart once
-both are sitting in PatternMatchFailed.
+A line whose choice is "l:?" is moved the same way, but the PL folder has
+a "_chk" suffix appended at the destination (e.g. "PL025" -> "PL025_chk"),
+so it's easy to tell "Retake" and "?" entries apart once both are sitting
+in PatternMatchFailed. Pass --no-move-chk to instead leave "l:?" entries
+where they are: their source directory paths are written, one per line,
+to "<ChkRes.txt stem>_chk_list.txt" next to <ChkRes.txt>.
 
 The source is looked up under both
     <ScanData>/<UTS|FTS>/ECC<n>[/Ref]/IMG/Event?????/PL???
@@ -49,7 +51,7 @@ def parse_ecc_and_type(chkres_path):
     name = os.path.basename(chkres_path)
     m = FILENAME_PATTERN.search(name)
     if not m:
-        raise ValueError(f"ECC番号/UTS・FTSの区別がファイル名から読み取れません: {name}")
+        raise ValueError(f"ECC番号/UTS・FTSの区別がtxtファイル名から読み取れません: {name}")
     ecc_num, scan_type, ref_marker = m.group(1), m.group(2), m.group(3)
     return ecc_num, scan_type, ref_marker is not None
 
@@ -69,6 +71,14 @@ def main():
         "--dry-run",
         action="store_true",
         help="Only list what would be moved, without moving anything",
+    )
+    parser.add_argument(
+        "--no-move-chk",
+        action="store_true",
+        help=(
+            "For \"l:?\" entries, just print \"Event?????/PL???\" instead of "
+            "renaming/moving the directory (k:Retake entries are unaffected)"
+        ),
     )
     args = parser.parse_args()
 
@@ -98,6 +108,8 @@ def main():
         sys.exit(1)
 
     moved = 0
+    listed = 0
+    chk_log_paths = []
     skipped_missing = []
     skipped_existing = []
 
@@ -115,9 +127,24 @@ def main():
                 continue
 
             rel_parts = rel_pl_dir.split("/")
+
+            if choice == CHK_CHOICE and args.no_move_chk:
+                src_dir = next(
+                    (os.path.join(r, *rel_parts) for r in src_roots
+                     if os.path.isdir(os.path.join(r, *rel_parts))),
+                    None,
+                )
+                if src_dir is None:
+                    skipped_missing.append(rel_pl_dir)
+                    continue
+                print(f"[?] {rel_pl_dir} -> {src_dir}")
+                chk_log_paths.append(src_dir)
+                listed += 1
+                continue
+
             dst_parts = list(rel_parts)
             if choice == CHK_CHOICE:
-                dst_parts[-1] = dst_parts[-1].lower() + CHK_SUFFIX
+                dst_parts[-1] = dst_parts[-1] + CHK_SUFFIX
             dst_dir = os.path.join(dst_root, *dst_parts)
 
             src_dir = next(
@@ -143,6 +170,15 @@ def main():
 
     action = "would be moved" if args.dry_run else "moved"
     print(f"\nDone. {moved} director(ies) {action}.")
+    if args.no_move_chk:
+        print(f"{listed} \"l:?\" entries listed (not moved).")
+        if chk_log_paths:
+            stem = os.path.splitext(os.path.basename(chkres_path))[0]
+            log_path = os.path.join(os.path.dirname(chkres_path), f"{stem}_chk_list.txt")
+            with open(log_path, "w", encoding="utf-8") as f:
+                for p in chk_log_paths:
+                    f.write(p + "\n")
+            print(f"Wrote {len(chk_log_paths)} \"l:?\" directory path(s) to {log_path}")
     if skipped_missing:
         print(f"{len(skipped_missing)} Retake/? entries had no source directory:")
         for name in skipped_missing:
