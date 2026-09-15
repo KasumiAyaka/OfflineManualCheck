@@ -18,13 +18,19 @@ For each (PL, eventid, trk_type):
 Existence is judged purely by whether the Event?????/PL??? directory exists
 under either of those two candidate roots - file contents are not checked.
 
-Missing (Event?????/PL???, category) pairs are printed and also written to
-"<rawidmap stem>_missing.txt" next to the input file.
+Missing entries are grouped by Event and printed (and also written to
+"<rawidmap stem>_missing.txt" next to the input file) as:
+    Event:?????
+    IMG:PL???,PL???
+    Ref:PL???
+(the IMG:/Ref: line is omitted for an Event with nothing missing in that
+category.)
 """
 import argparse
 import os
 import re
 import sys
+from collections import defaultdict
 
 SCAN_TYPES = ["UTS", "FTS"]
 FILENAME_PATTERN = re.compile(r"btrklist(\d+)_rawidmap", re.IGNORECASE)
@@ -50,6 +56,24 @@ def find_dir(roots, event_pl):
         if os.path.isdir(candidate):
             return candidate
     return None
+
+
+def format_missing_report(missing):
+    """missing: list of (event_pl, category). Returns the grouped-by-Event report text."""
+    by_event = defaultdict(lambda: defaultdict(list))
+    for event_pl, category in missing:
+        event, pl = event_pl.split("/")
+        by_event[event][category].append(pl)
+
+    lines = []
+    for event in sorted(by_event):
+        lines.append("Event:" + event[len("Event"):])
+        for category, prefix in (("IMG", "IMG"), ("Ref/IMG", "Ref")):
+            pls = by_event[event].get(category)
+            if not pls:
+                continue
+            lines.append(f"{prefix}:" + ",".join(sorted(pls)))
+    return "\n".join(lines)
 
 
 def main():
@@ -109,15 +133,14 @@ def main():
     print(f"  見つからない: {len(missing)}")
 
     if missing:
+        report = format_missing_report(missing)
         print("\n見つからないディレクトリ:")
-        for event_pl, category in missing:
-            print(f"  [{category}] {event_pl}")
+        print(report)
 
         stem = os.path.splitext(os.path.basename(rawidmap_path))[0]
         out_path = os.path.join(os.path.dirname(rawidmap_path), f"{stem}_missing.txt")
         with open(out_path, "w", encoding="utf-8") as f:
-            for event_pl, category in missing:
-                f.write(f"{event_pl} {category}\n")
+            f.write(report + "\n")
         print(f"\n一覧を書き出しました: {out_path}")
 
 
