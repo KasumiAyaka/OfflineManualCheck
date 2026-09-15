@@ -20,11 +20,12 @@ under either of those two candidate roots - file contents are not checked.
 
 Missing entries are grouped by Event and printed (and also written to
 "<rawidmap stem>_missing.txt" next to the input file) as:
-    Event:?????
+    Event:????? PL???
     IMG:PL???,PL???
     Ref:PL???
-(the IMG:/Ref: line is omitted for an Event with nothing missing in that
-category.)
+(the PL??? after "Event:?????" is that Event's real track (trk_type 0) PL,
+included as a reference PL that is known to exist; the IMG:/Ref: line is
+omitted for an Event with nothing missing in that category.)
 """
 import argparse
 import os
@@ -58,8 +59,9 @@ def find_dir(roots, event_pl):
     return None
 
 
-def format_missing_report(missing):
-    """missing: list of (event_pl, category). Returns the grouped-by-Event report text."""
+def format_missing_report(missing, real_pl_by_event):
+    """missing: list of (event_pl, category). real_pl_by_event: Event?????->PL??? of
+    that event's real (trk_type 0) track. Returns the grouped-by-Event report text."""
     by_event = defaultdict(lambda: defaultdict(list))
     for event_pl, category in missing:
         event, pl = event_pl.split("/")
@@ -67,7 +69,11 @@ def format_missing_report(missing):
 
     lines = []
     for event in sorted(by_event):
-        lines.append("Event:" + event[len("Event"):])
+        header = "Event:" + event[len("Event"):]
+        real_pl = real_pl_by_event.get(event)
+        if real_pl:
+            header += " " + real_pl
+        lines.append(header)
         for category, prefix in (("IMG", "IMG"), ("Ref/IMG", "Ref")):
             pls = by_event[event].get(category)
             if not pls:
@@ -98,6 +104,7 @@ def main():
     print(f"ScanData root: {scan_data_root}")
 
     targets = {}  # (event_pl, is_ref) -> None, insertion order preserved (dict, py3.7+)
+    real_pl_by_event = {}  # Event????? -> PL??? of that event's trk_type==0 (real) track
     with open(rawidmap_path, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -109,9 +116,13 @@ def main():
                 continue
             pl, eventid = int(parts[0]), int(parts[1])
             trk_type = int(parts[11])
-            event_pl = f"Event{eventid:05d}/PL{pl:03d}"
+            event = f"Event{eventid:05d}"
+            pl_str = f"PL{pl:03d}"
+            event_pl = f"{event}/{pl_str}"
             is_ref = trk_type == -1
             targets[(event_pl, is_ref)] = None
+            if trk_type == 0 and event not in real_pl_by_event:
+                real_pl_by_event[event] = pl_str
 
     img_roots = candidate_roots(scan_data_root, ecc_num, is_ref=False)
     ref_roots = candidate_roots(scan_data_root, ecc_num, is_ref=True)
@@ -133,7 +144,7 @@ def main():
     print(f"  見つからない: {len(missing)}")
 
     if missing:
-        report = format_missing_report(missing)
+        report = format_missing_report(missing, real_pl_by_event)
         print("\n見つからないディレクトリ:")
         print(report)
 
