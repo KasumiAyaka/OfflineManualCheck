@@ -40,6 +40,8 @@ python tools\CheckImg\move_retake_dirs.py --src-dir %fts_path% --dry-run  --no-m
 python tools\CheckImg\check_quality.py %uts_ref% %uts_ref_path% 
 python tools\CheckImg\check_quality.py %fts_ref% %fts_ref_path% 
 pause
+
+
 rem move
 python tools\CheckImg\move_retake_dirs.py %uts_ref%
 python tools\CheckImg\move_retake_dirs.py %fts_ref%
