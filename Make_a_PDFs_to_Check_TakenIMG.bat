@@ -1,4 +1,5 @@
 if "%2"=="" goto :usage
+rem pdfを作成する。
 
 set input_path=K:\NINJA\E71a\ManualCheck\ScanData
 

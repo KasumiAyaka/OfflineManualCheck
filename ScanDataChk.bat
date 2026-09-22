@@ -1,5 +1,6 @@
 ::@echo off
 if "%1"=="" goto :usage
+rem tracklistに描かれている飛跡の画像データがあるかどうかを確認する。
 
 rem set n=00%3
 rem set pl=!n:~-3!
