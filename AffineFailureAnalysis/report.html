@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>断層画像取得 成功/失敗判定基準の検討</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --muted: #767676;
+    --line: #dfe1e6;
+    --surface: #ffffff;
+    --page: #f5f6f8;
+    --accent: #2a5db0;
+    --ok: #2a78d6;
+    --fail: #d9622b;
+    --ok-soft: #eaf1fb;
+    --fail-soft: #fdece3;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Yu Gothic", "Meiryo", "Segoe UI", -apple-system, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 40px 28px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 19px; margin: 44px 0 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  .subtitle { color: var(--muted); font-size: 14px; margin: 0 0 32px; }
+  p { color: var(--ink-soft); }
+  code { background: #eef0f3; padding: 2px 6px; border-radius: 4px; font-size: 0.92em; }
+
+  .callout {
+    background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent);
+    border-radius: 8px; padding: 20px 24px; margin: 18px 0;
+  }
+  .callout .rule { font-size: 17px; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
+  .metrics-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; }
+  .metric-pill {
+    background: var(--page); border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px 16px; font-size: 13px; color: var(--ink-soft);
+  }
+  .metric-pill b { display: block; font-size: 20px; color: var(--ink); font-weight: 700; }
+
+  table.data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  }
+  table.data-table th, table.data-table td {
+    padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: right;
+  }
+  table.data-table th { background: #eef1f5; text-align: right; font-weight: 600; color: var(--ink-soft); }
+  table.data-table th:first-child, table.data-table td:first-child { text-align: left; }
+  table.data-table td:nth-child(2), table.data-table th:nth-child(2) { text-align: left; }
+  table.data-table tr:last-child td { border-bottom: none; }
+  .breakdown td:nth-child(3), .breakdown th:nth-child(3) { text-align: left; }
+  .table-wrap { overflow-x: auto; }
+
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .badge.ok { background: var(--ok-soft); color: var(--ok); }
+  .badge.fail { background: var(--fail-soft); color: var(--fail); }
+
+  .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  .fig-grid.single { grid-template-columns: 1fr; max-width: 560px; }
+  figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+  figure img { width: 100%; display: block; border-radius: 4px; }
+  figcaption { font-size: 12.5px; color: var(--muted); margin-top: 8px; text-align: center; }
+
+  .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  .example-card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; }
+  .example-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .example-title { font-weight: 600; font-size: 14.5px; }
+  .example-path { font-size: 12px; color: var(--muted); margin: 0 0 10px; word-break: break-all; }
+  .example-formula { font-size: 12.5px; color: var(--ink-soft); background: var(--page); border-radius: 6px; padding: 8px 10px; margin: 0 0 12px; }
+  table.example-table th, table.example-table td { text-align: right; }
+  table.example-table th:first-child, table.example-table td:first-child { text-align: left; }
+  table.example-table th:nth-child(2), table.example-table td:nth-child(2) { text-align: left; }
+  table.example-table tr.highlight td { background: #f4f8fd; }
+  .example-verdict { margin: 14px 0 0; font-size: 13.5px; }
+  @media (max-width: 700px) { .example-grid { grid-template-columns: 1fr; } }
+
+  table.flagged-table { font-size: 12.5px; }
+  table.flagged-table td, table.flagged-table th { padding: 6px 10px; }
+  details summary::-webkit-details-marker { display: none; }
+
+  ul { color: var(--ink-soft); }
+  .note { background: #fff9ec; border: 1px solid #f0dfae; border-radius: 8px; padding: 14px 18px; color: #6b5323; font-size: 14px; }
+  footer { margin-top: 50px; color: var(--muted); font-size: 12.5px; }
+  @media (max-width: 700px) { .fig-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>断層画像取得 成功/失敗判定基準の検討</h1>
+  <p class="subtitle">AffineParam(lens/stage画像の位置合わせアフィン変換)を使い、目視判定(check_quality.py)の代わりになる数値基準を探した結果</p>
+
+  <h2>データ</h2>
+  <p>
+    <span class="badge fail">FAIL</span> = <code>ScanData\PatternMatchFailed\...</code> に移動された(取得失敗と判断された)ディレクトリ、
+    <span class="badge ok">OK</span> = <code>ScanData\ChkRes\*.txt</code> で最終的に <code>j:OK</code> と判定され、現在も <code>ScanData\&lt;UTS|FTS&gt;\...</code> に残っているディレクトリ。
+    ディレクトリ単位では全 1350 件。
+  </p>
+  <p class="note">
+    <b>重要な前提:</b> AffineParamはEvent(飛跡)ごとの値ではなく、<b>同じPL・同じZone(物理走査エリア)を通る全Eventで完全に同一の値</b>になることを確認した
+    (例: FTS ECC4 PL064 Zone5 を通る Event00633・Event03933・Event06107・Event07277 は6つの数値が1ビットも違わず一致)。
+    そのため統計は「(ECC, scan_type, IMG/Ref, PL, AffineParamの値)が一意になるスキャン単位」に重複除去してから取っている。
+    重複除去後は <b>897 件</b>(OK 799 件 / FAIL 98 件)。
+  </p>
+
+  <div class="table-wrap">
+    <table class="data-table breakdown"><thead><tr><th>ecc</th><th>scan_type</th><th>category</th><th>OK</th><th>FAIL</th></tr></thead><tbody><tr><td>4</td><td>FTS</td><td>IMG</td><td>62</td><td>4</td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>59</td><td>4</td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>148</td><td>39</td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>150</td><td>36</td></tr><tr><td>6</td><td>FTS</td><td>IMG</td><td>20</td><td>0</td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>181</td><td>9</td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>179</td><td>6</td></tr><tr><td>合計</td><td></td><td></td><td>799</td><td>98</td></tr></tbody></table>
+  </div>
+
+  <h2>結論: 使える基準</h2>
+  <div class="callout">
+    <div class="rule">det_dev = |a·d − b·c − 1| &gt; 0.0025 なら FAIL、それ以下なら OK</div>
+    <p style="margin:0;">アフィン行列の行列式が1からどれだけずれているかを見る、最もシンプルで強力な基準。</p>
+    <div class="metrics-row">
+      <div class="metric-pill"><b>0.984</b>正解率 (accuracy)</div>
+      <div class="metric-pill"><b>0.949</b>FAIL検出率 (recall)</div>
+      <div class="metric-pill"><b>0.912</b>適合率 (precision)</div>
+    </div>
+  </div>
+  <p>
+    ほぼ同じ性能で <code>scale_dev = max(|scale_x−1|, |scale_y−1|)</code>(x/y方向の拡大率のずれ。
+    <code>scale_x = sqrt(a²+c²)</code>, <code>scale_y = sqrt(b²+d²)</code>)を使うルール
+    (<b>scale_dev &gt; 0.0031 なら FAIL</b>、accuracy 0.982 / recall 0.929 / precision 0.91)も使える。
+  </p>
+  <p>
+    回転角(<code>rotation_deg</code>)は単独では検出率22.5%と弱いが、<b>|rotation_deg| &gt; 1度の場合は今回のデータで100%FAILだった</b>ため、
+    「回転が大きければ確実にFAIL」という補助フィルタとして使える。
+    一方、並進量(<code>translation_mag</code>、ステージ位置そのもの)はFAIL/OKで有意差がなく判定には使えない
+    ―― これは想定通りで、手法の健全性を裏付ける結果でもある。
+  </p>
+
+  <h2>具体例: FAILとOKをそれぞれ1件</h2>
+  <p>全データの中で、それぞれの集団の <b>det_devの中央値に最も近い</b>(極端な外れ値ではない)代表例を1件ずつ選び、計算過程を示す。</p>
+  <div class="example-grid">
+    
+    <div class="example-card">
+      <div class="example-head">
+        <span class="badge fail">FAIL</span>
+        <span class="example-title">ECC6 UTS IMG Event03638/PL078</span>
+      </div>
+      <p class="example-path"><code>K:\NINJA\E71a\ManualCheck\ScanData\UTS\ECC6\IMG\Event03638\PL078\tomographic_images.json</code></p>
+      <p class="example-formula">AffineParam = [a, b, c, d, e, f] = [1.00076, -0.0181998, -0.0224863, 0.932618, -297575, 26733.3]</p>
+      <table class="data-table example-table">
+        <thead><tr><th>指標</th><th>計算式</th><th>数値</th></tr></thead>
+        <tbody>
+          <tr><td>scale_x</td><td>√(a²+c²)</td><td>1.001</td></tr>
+          <tr><td>scale_y</td><td>√(b²+d²)</td><td>0.9328</td></tr>
+          <tr><td>det</td><td>a·d − b·c</td><td>0.93292</td></tr>
+          <tr class="highlight"><td><b>det_dev</b></td><td>|det − 1|</td><td><b>0.06708</b></td></tr>
+          <tr><td>scale_dev</td><td>max(|scale_x−1|, |scale_y−1|)</td><td>0.0672</td></tr>
+          <tr><td>rotation_deg</td><td>atan2(c, a)</td><td>-1.287°</td></tr>
+        </tbody>
+      </table>
+      <p class="example-verdict">
+        判定: det_dev = 0.06708 &gt; 0.0025 &rarr;
+        <b class="badge fail">FAIL</b>(実際に PatternMatchFailed へ移動)
+      </p>
+    </div>
+    
+    <div class="example-card">
+      <div class="example-head">
+        <span class="badge ok">OK</span>
+        <span class="example-title">ECC6 UTS IMG Event08669/PL053</span>
+      </div>
+      <p class="example-path"><code>K:\NINJA\E71a\ManualCheck\ScanData\UTS\ECC6\IMG\Event08669\PL053\tomographic_images.json</code></p>
+      <p class="example-formula">AffineParam = [a, b, c, d, e, f] = [1.00015, -0.00262183, 0.00198384, 1.00051, -177051, -201071]</p>
+      <table class="data-table example-table">
+        <thead><tr><th>指標</th><th>計算式</th><th>数値</th></tr></thead>
+        <tbody>
+          <tr><td>scale_x</td><td>√(a²+c²)</td><td>1.0002</td></tr>
+          <tr><td>scale_y</td><td>√(b²+d²)</td><td>1.0005</td></tr>
+          <tr><td>det</td><td>a·d − b·c</td><td>1.0007</td></tr>
+          <tr class="highlight"><td><b>det_dev</b></td><td>|det − 1|</td><td><b>0.0006688</b></td></tr>
+          <tr><td>scale_dev</td><td>max(|scale_x−1|, |scale_y−1|)</td><td>0.000517</td></tr>
+          <tr><td>rotation_deg</td><td>atan2(c, a)</td><td>0.1136°</td></tr>
+        </tbody>
+      </table>
+      <p class="example-verdict">
+        判定: det_dev = 0.0006688 &le; 0.0025 &rarr;
+        <b class="badge ok">OK</b>(実際に ChkRes で j:OK と判定)
+      </p>
+    </div>
+    
+  </div>
+
+  <div class="fig-grid">
+    <figure><img src="hist_det_dev.png" alt="det_dev histogram"><figcaption>det_dev のFAIL/OKヒストグラム</figcaption></figure>
+    <figure><img src="hist_scale_dev.png" alt="scale_dev histogram"><figcaption>scale_dev のFAIL/OKヒストグラム</figcaption></figure>
+    <figure><img src="hist_rotation_deg.png" alt="rotation_deg histogram"><figcaption>rotation_deg のFAIL/OKヒストグラム</figcaption></figure>
+    <figure><img src="scatter_scale.png" alt="scale scatter"><figcaption>scale_x vs scale_y 散布図</figcaption></figure>
+  </div>
+
+  <h2>指標ごとの記述統計(主要指標)</h2>
+  <div class="table-wrap">
+    <table class="data-table"><thead><tr><th>metric</th><th>outcome</th><th>n</th><th>mean</th><th>std</th><th>median</th><th>p05</th><th>p95</th><th>min</th><th>max</th></tr></thead><tbody><tr><td>scale_dev = max(|scale_x-1|, |scale_y-1|)</td><td>OK</td><td>799</td><td>0.001307</td><td>0.0089</td><td>0.0003999</td><td>0.0002168</td><td>0.0006317</td><td>7.851e-05</td><td>0.127</td></tr><tr><td>scale_dev = max(|scale_x-1|, |scale_y-1|)</td><td>FAIL</td><td>98</td><td>0.06791</td><td>0.04607</td><td>0.0605</td><td>0.001581</td><td>0.1492</td><td>0.0003437</td><td>0.2271</td></tr><tr><td>det_dev = |det - 1|</td><td>OK</td><td>799</td><td>0.001463</td><td>0.008554</td><td>0.0006688</td><td>0.000301</td><td>0.0009947</td><td>5.004e-05</td><td>0.1257</td></tr><tr><td>det_dev = |det - 1|</td><td>FAIL</td><td>98</td><td>0.07384</td><td>0.06584</td><td>0.06509</td><td>0.005741</td><td>0.2041</td><td>0.0006327</td><td>0.3065</td></tr><tr><td>rotation_deg = atan2(c, a) [deg]</td><td>OK</td><td>799</td><td>0.05984</td><td>0.4883</td><td>0.119</td><td>-0.7406</td><td>0.6861</td><td>-7.142</td><td>1.148</td></tr><tr><td>rotation_deg = atan2(c, a) [deg]</td><td>FAIL</td><td>98</td><td>-0.5743</td><td>3.677</td><td>-0.1763</td><td>-5.89</td><td>6.398</td><td>-9.314</td><td>8.17</td></tr><tr><td>translation_mag = sqrt(e²+f²) [um]</td><td>OK</td><td>799</td><td>1.675e+05</td><td>7.536e+04</td><td>1.744e+05</td><td>4.597e+04</td><td>3.023e+05</td><td>6556</td><td>3.347e+05</td></tr><tr><td>translation_mag = sqrt(e²+f²) [um]</td><td>FAIL</td><td>98</td><td>1.881e+05</td><td>7.303e+04</td><td>1.912e+05</td><td>5.875e+04</td><td>3.073e+05</td><td>2.031e+04</td><td>3.26e+05</td></tr></tbody></table>
+  </div>
+
+  <h2>1変数しきい値ルールの性能(全指標)</h2>
+  <div class="table-wrap">
+    <table class="data-table thr-table"><thead><tr><th>metric</th><th>rule</th><th>accuracy</th><th>precision</th><th>recall</th><th>tp</th><th>fp</th><th>fn</th><th>tn</th></tr></thead><tbody><tr><td>scale_x</td><td>scale_x > 1.00065  =>  FAIL</td><td>0.942</td><td>0.8966</td><td>0.5306</td><td>52</td><td>6</td><td>46</td><td>793</td></tr><tr><td>scale_y</td><td>scale_y > 1.0013  =>  FAIL</td><td>0.9331</td><td>0.8958</td><td>0.4388</td><td>43</td><td>5</td><td>55</td><td>794</td></tr><tr><td>scale_dev</td><td>scale_dev > 0.00311137  =>  FAIL</td><td>0.9822</td><td>0.91</td><td>0.9286</td><td>91</td><td>9</td><td>7</td><td>790</td></tr><tr><td>det</td><td>det > 1.0013  =>  FAIL</td><td>0.9331</td><td>0.88</td><td>0.449</td><td>44</td><td>6</td><td>54</td><td>793</td></tr><tr><td>det_dev</td><td>det_dev > 0.00252129  =>  FAIL</td><td>0.9844</td><td>0.9118</td><td>0.949</td><td>93</td><td>9</td><td>5</td><td>790</td></tr><tr><td>rotation_deg</td><td>rotation_deg > 1.14762  =>  FAIL</td><td>0.913</td><td>1</td><td>0.2041</td><td>20</td><td>0</td><td>78</td><td>799</td></tr><tr><td>nonortho</td><td>nonortho > 1.43118e-05  =>  FAIL</td><td>0.9398</td><td>0.9783</td><td>0.4592</td><td>45</td><td>1</td><td>53</td><td>798</td></tr><tr><td>translation_mag</td><td>translation_mag > 334653  =>  FAIL</td><td>0.8907</td><td>nan</td><td>0</td><td>0</td><td>0</td><td>98</td><td>799</td></tr></tbody></table>
+  </div>
+
+  
+  <h2>基準でFAILと判定される一覧(レビュー済みデータ)</h2>
+  <p>det_dev &gt; 0.002521 を <code>records.csv</code>(ディレクトリ単位)に適用した結果。全154件のうち、
+    実際の目視判定もFAILで一致するもの 139件、実際はOKなのに誤ってFAILと判定したもの 15件。</p>
+  <details>
+    <summary style="cursor:pointer; color:var(--accent); font-weight:600; margin-bottom:10px;">全154件の詳細を表示</summary>
+    <div class="table-wrap" style="margin-top:10px;">
+      <table class="data-table flagged-table"><thead><tr><th>ECC</th><th>scan_type</th><th>category</th><th>Event</th><th>PL</th><th>det_dev</th><th>判定</th></tr></thead><tbody><tr><td>4</td><td>FTS</td><td>IMG</td><td>08322</td><td>038</td><td>0.07669</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>IMG</td><td>05414</td><td>049</td><td>0.1644</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>IMG</td><td>11357</td><td>049</td><td>0.1644</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>IMG</td><td>00633</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>IMG</td><td>03933</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>IMG</td><td>06107</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>IMG</td><td>07277</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>IMG</td><td>12037</td><td>064</td><td>0.01208</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>08322</td><td>038</td><td>0.07669</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>05414</td><td>049</td><td>0.1644</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>11357</td><td>049</td><td>0.1644</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>00633</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>03933</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>06107</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>07277</td><td>064</td><td>0.006572</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>FTS</td><td>Ref/IMG</td><td>12037</td><td>064</td><td>0.01208</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>01587</td><td>018</td><td>0.06978</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10208</td><td>018</td><td>0.03296</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10208</td><td>019</td><td>0.07786</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>03858</td><td>020</td><td>0.1064</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10208</td><td>020</td><td>0.01646</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>01587</td><td>021</td><td>0.07039</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>03858</td><td>021</td><td>0.07039</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>03858</td><td>023</td><td>0.1402</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06295</td><td>024</td><td>0.07334</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06983</td><td>024</td><td>0.1044</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>08023</td><td>024</td><td>0.1044</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>09487</td><td>024</td><td>0.1749</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10478</td><td>024</td><td>0.1044</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10544</td><td>024</td><td>0.06258</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06295</td><td>025</td><td>0.01254</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06738</td><td>025</td><td>0.0495</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06983</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>08023</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>09487</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10478</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10544</td><td>025</td><td>0.0495</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>00623</td><td>026</td><td>0.2287</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>01124</td><td>026</td><td>0.07116</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>03196</td><td>026</td><td>0.2287</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>04196</td><td>026</td><td>0.02055</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>05488</td><td>026</td><td>0.0119</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06295</td><td>026</td><td>0.07116</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06738</td><td>026</td><td>0.0119</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06983</td><td>026</td><td>0.082</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>08023</td><td>026</td><td>0.082</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10478</td><td>026</td><td>0.082</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10544</td><td>026</td><td>0.0119</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>05130</td><td>029</td><td>0.0306</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>09955</td><td>033</td><td>0.05398</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>09955</td><td>035</td><td>0.007474</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>02069</td><td>041</td><td>0.2041</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>07224</td><td>041</td><td>0.2041</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10856</td><td>044</td><td>0.02733</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10856</td><td>045</td><td>0.0722</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>05414</td><td>048</td><td>0.01425</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>01751</td><td>053</td><td>0.08928</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>09693</td><td>054</td><td>0.002521</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>03542</td><td>056</td><td>0.01342</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>03679</td><td>056</td><td>0.01342</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>01936</td><td>058</td><td>0.01361</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>01936</td><td>059</td><td>0.3065</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>05851</td><td>059</td><td>0.05797</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>01936</td><td>060</td><td>0.1409</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>05851</td><td>060</td><td>0.1915</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>07277</td><td>061</td><td>0.02402</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>09177</td><td>061</td><td>0.02402</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06107</td><td>065</td><td>0.1078</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>00212</td><td>071</td><td>0.05595</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>02395</td><td>071</td><td>0.1178</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>06357</td><td>072</td><td>0.1257</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>09870</td><td>072</td><td>0.1257</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10490</td><td>072</td><td>0.1257</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>10490</td><td>074</td><td>0.0775</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>05775</td><td>075</td><td>0.01633</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>IMG</td><td>08950</td><td>075</td><td>0.1172</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>01587</td><td>018</td><td>0.06978</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10208</td><td>018</td><td>0.03296</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10208</td><td>019</td><td>0.07786</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>03858</td><td>020</td><td>0.1064</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10208</td><td>020</td><td>0.01646</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>01587</td><td>021</td><td>0.07039</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>03858</td><td>021</td><td>0.07039</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>03858</td><td>023</td><td>0.1402</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06295</td><td>024</td><td>0.07334</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06983</td><td>024</td><td>0.1044</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>08023</td><td>024</td><td>0.1044</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>09487</td><td>024</td><td>0.1749</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10478</td><td>024</td><td>0.1044</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10544</td><td>024</td><td>0.06258</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06295</td><td>025</td><td>0.01254</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06738</td><td>025</td><td>0.0495</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06983</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>08023</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>09487</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10478</td><td>025</td><td>0.03357</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10544</td><td>025</td><td>0.0495</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>00623</td><td>026</td><td>0.2287</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>01124</td><td>026</td><td>0.07116</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>03196</td><td>026</td><td>0.2287</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>04196</td><td>026</td><td>0.02055</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>05488</td><td>026</td><td>0.0119</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06295</td><td>026</td><td>0.07116</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06738</td><td>026</td><td>0.0119</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06983</td><td>026</td><td>0.082</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>08023</td><td>026</td><td>0.082</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10478</td><td>026</td><td>0.082</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10544</td><td>026</td><td>0.0119</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>05130</td><td>029</td><td>0.0306</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>09955</td><td>033</td><td>0.05398</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>09955</td><td>035</td><td>0.007474</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>02069</td><td>041</td><td>0.2041</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>07224</td><td>041</td><td>0.2041</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10856</td><td>044</td><td>0.02733</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10856</td><td>045</td><td>0.0722</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>05414</td><td>048</td><td>0.01425</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>01751</td><td>053</td><td>0.08928</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>09693</td><td>054</td><td>0.002521</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>03542</td><td>056</td><td>0.01342</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>03679</td><td>056</td><td>0.01342</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>01936</td><td>058</td><td>0.01361</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>01936</td><td>059</td><td>0.3065</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>05851</td><td>059</td><td>0.05797</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>01936</td><td>060</td><td>0.1409</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>05851</td><td>060</td><td>0.1915</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>07277</td><td>061</td><td>0.02402</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>09177</td><td>061</td><td>0.02402</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06107</td><td>065</td><td>0.1078</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>00212</td><td>071</td><td>0.05595</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>02395</td><td>071</td><td>0.1178</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>06357</td><td>072</td><td>0.1257</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>09870</td><td>072</td><td>0.1257</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10490</td><td>072</td><td>0.1257</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>10490</td><td>074</td><td>0.0775</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>05775</td><td>075</td><td>0.01633</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>4</td><td>UTS</td><td>Ref/IMG</td><td>08950</td><td>075</td><td>0.1172</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>05228</td><td>043</td><td>0.02732</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>08742</td><td>043</td><td>0.02732</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>07982</td><td>054</td><td>0.09625</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>03615</td><td>078</td><td>0.06708</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>03638</td><td>078</td><td>0.06708</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>03615</td><td>080</td><td>0.09344</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>03638</td><td>080</td><td>0.09344</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>02346</td><td>112</td><td>0.02695</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>IMG</td><td>07506</td><td>125</td><td>0.06311</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>05228</td><td>043</td><td>0.02732</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>08742</td><td>043</td><td>0.02732</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>07982</td><td>054</td><td>0.09625</td><td><span class="badge ok">誤検出 (実際はOK)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>03615</td><td>078</td><td>0.06708</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>03638</td><td>078</td><td>0.06708</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>03615</td><td>080</td><td>0.09344</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>03638</td><td>080</td><td>0.09344</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>02346</td><td>112</td><td>0.02695</td><td><span class="badge fail">一致 (FAIL)</span></td></tr><tr><td>6</td><td>UTS</td><td>Ref/IMG</td><td>07506</td><td>125</td><td>0.06311</td><td><span class="badge fail">一致 (FAIL)</span></td></tr></tbody></table>
+    </div>
+  </details>
+
+  
+  <h2>未レビュー領域への基準適用(予測のみ)</h2>
+  <p class="note">
+    以下のディレクトリは <code>ChkRes.txt</code>(目視判定)・<code>PatternMatchFailed</code>(移動記録)のいずれも存在せず、
+    <b>これまで一度も人の目視レビューが行われていない</b>。基準による予測のみで、実際の目視判定との一致/不一致は確認できない。
+    (<code>ScanData\UTS\ECC6\Ref\IMG</code> は <code>ChkRes\ECC6UTS_Ref.txt</code> の追加により、この節ではなく上のレビュー済みデータ側に統合された。)
+  </p>
+  <p><code>ScanData\FTS\ECC6\Ref</code></p>
+  <p>FTS ECC6 Ref: 全20件、基準でFAILと予測されたものは<b>0件</b>。</p>
+
+
+  <h2>注意点</h2>
+  <ul>
+    <li>上記のしきい値でもFAILの約6%を見逃し、OKの約2%を誤ってFAILと判定する。目視確認では数値以外の情報(画像そのものの見た目)も考慮していると考えられるため、この基準は<b>目視確認の完全な代替ではなく、大部分を自動でスクリーニングし、境界線上のケースだけ目視確認する一次フィルタ</b>として使うのが適切。</li>
+    <li>データの大部分はECC4のUTSから来ており、基準の妥当性は主にECC4に基づく。ECC6はFAILが3件(FTSは0件)と少ないため、ECC6や今後の他ECCへの一般化は追加データで確認するのが望ましい。</li>
+  </ul>
+
+  <h2>再現方法</h2>
+  <p>作業ディレクトリ内で以下を順に実行すると、全てのCSV・プロット・このHTMLが再生成される。</p>
+  <pre style="background:#eef0f3; padding:14px 18px; border-radius:8px; overflow-x:auto;"><code>python collect_data.py   # ScanData を読み、records.csv を作る
+python analyze.py        # records.csv から統計・プロットを作る
+python make_report.py    # このHTMLレポートを作る</code></pre>
+
+  <footer>
+    詳細な数値・生データは同ディレクトリ内の records.csv / unique_scans.csv / summary_stats.csv / threshold_scan.csv、
+    経緯・方針の全文は README.md を参照。
+  </footer>
+
+</div>
+</body>
+</html>

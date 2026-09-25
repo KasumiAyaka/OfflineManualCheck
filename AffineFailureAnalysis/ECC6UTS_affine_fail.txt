@@ -1,0 +1,12 @@
+Event01694/PL122 k:Retake
+Event02346/PL112 k:Retake
+Event03615/PL078 k:Retake
+Event03615/PL080 k:Retake
+Event03638/PL078 k:Retake
+Event03638/PL080 k:Retake
+Event05228/PL043 k:Retake
+Event05497/PL107 k:Retake
+Event07506/PL125 k:Retake
+Event07633/PL115 k:Retake
+Event07982/PL054 k:Retake
+Event08742/PL043 k:Retake
