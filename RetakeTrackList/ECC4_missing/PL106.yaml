@@ -1,0 +1,9 @@
+  - Plate: 106
+    RawID: 2785653
+    Surface: Both
+    SaveTo: G:ECC4/IMG/Event01452/PL106
+  - Plate: 106
+    RawID: 300586
+    Zone: 3
+    Surface: Both
+    SaveTo: G:ECC4/Ref/IMG/Event01452/PL106

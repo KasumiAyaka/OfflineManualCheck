@@ -1,0 +1,4 @@
+ WARNINGs: Area1~6 has no basetrack matching the Area0 basetrack's microtracks
+PL , event , rawid(merged) , ax , ay , x , y =
+23, 6983, 3691057, 0.501848, -0.183579, 88632.2, 162952
+91, 4069, 4457418, 0.100312, 0.542798, 176446, 128391

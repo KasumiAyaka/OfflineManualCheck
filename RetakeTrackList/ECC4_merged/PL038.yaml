@@ -1,0 +1,10 @@
+  - Plate: 38
+    Track: [-0.0191,-0.9266,116973,39167.8]
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC4/IMG/Event08322/PL038
+  - Plate: 38
+    RawID: 431086
+    Zone: 5
+    Surface: Both
+    SaveTo: G:ECC4/Ref/IMG/Event08322/PL038

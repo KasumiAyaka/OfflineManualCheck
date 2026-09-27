@@ -1,0 +1,20 @@
+  - Plate: 21
+    Track: [0.1529,-0.1632,124310,76157.8]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC4/IMG/Event01587/PL021
+  - Plate: 21
+    RawID: 327092
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC4/Ref/IMG/Event01587/PL021
+  - Plate: 21
+    Track: [0.2415,0.4515,54717.4,54069]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC4/IMG/Event03858/PL021
+  - Plate: 21
+    RawID: 225343
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC4/Ref/IMG/Event03858/PL021

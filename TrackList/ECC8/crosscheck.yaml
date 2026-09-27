@@ -1,0 +1,46 @@
+  - Plate: 100
+    RawID: 550915
+    RawID_small: 550915
+    Track_small: [0.04048,0.2343,121675,69441]
+    Zone_small: 1
+    Surface: Both
+    SaveTo: G:ECC8/IMG/Event00274/PL100
+  - Plate: 100
+    RawID: 1187848
+    Track_small: [0.43869,-0.48117,121786,69242.6]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/IMG/Event00274/PL100
+  - Plate: 101
+    Track: [0.0419,0.234,121831,71073.3]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event00274/PL101
+  - Plate: 101
+    RawID: 1475642
+    Track_small: [0.41963,0.62854,122183,72659.8]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event00274/PL101
+  - Plate: 102
+    Track: [0.041,0.2343,121429,68657.7]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event00274/PL102
+  - Plate: 102
+    RawID: 2110587
+    Track_small: [0.42165,-0.05075,123973,67274.1]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event00274/PL102
+  - Plate: 103
+    Track: [0.041,0.2341,122667,69908.4]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Event00274/PL103
+  - Plate: 103
+    RawID: 566063
+    Track_small: [0.43072,-0.42542,125103,69423]
+    Zone: 1
+    Surface: Both
+    SaveTo: G:ECC8/Ref/Ref/Event00274/PL103
