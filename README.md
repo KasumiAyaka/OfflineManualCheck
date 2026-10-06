@@ -11,6 +11,7 @@ ManualCheck/
 ├─ Momch/                    チェック対象イベントだけを抜き出した momch ファイル
 ├─ Pred/                     各イベント・各飛跡をPL方向に外挿した予測値(ev???.txt)、ECC別/water・iron別
 ├─ TrackList/                predをPLごとにまとめ、参照飛跡を突き合わせた最終的なTrackList・btrklist
+│  └─ ECC{num}_merged/        crosscheck.yamlでRawID項目をTrack+Zoneに置き換えたPL???.yaml(ECC1〜9、手動生成・後述)
 ├─ TrackList0/                do_03の中間生成物(PL分割前のTrackList、Divide_by_pl.py の出力など)
 ├─ src/                      パイプラインで使う実行ファイル(.exe)とローカル用バッチ(mkpred.bat)
 ├─ tools/                    パイプライン本体のバッチ(do_01〜do_04)とPythonスクリプト群
@@ -56,11 +57,15 @@ ManualCheck/
 - **`ManualCheck_EventList\make_event_list.bat <ECCnum>`**: 外部の解析結果(`vtxpos_chk.txt`)を gawk でフィルタし、チェック対象となるイベントIDのリスト(`ECC{num}water.txt` / `iron.txt`)を作る。do_01の前段。
 - **`src\mkpred.bat`**: `Make_man_chk_pred.exe` を呼ぶだけのラッパー(momchファイルとArea0のパスを渡すと、各飛跡をPL3枚分外挿した予測値をイベントごとのファイルに出力する)。
 - **`tools\decompress_fvxx_for_all_area_PL016to133.bat <ドライブレター> <ECCnum>`**: PL016〜PL133・Area1〜6の圧縮スキャンデータ(`f{pl}2_thick_0.vxx`)を一括で解凍する独立ユーティリティ。
+- **`tools\decompress_fvxx_for_crosscheck.py <ドライブレター> <ECCnum> [crosscheck.yamlパス] [--dry-run]`**: 上記の全PL×全Area版と異なり、`TrackList\ECC{num}\crosscheck.yaml` に登場する (Plate, Zone/Zone_small) の組み合わせだけを対象に、対応する `f{pl}2_thick_0.vxx.7z` を解凍する独立ユーティリティ。crosscheck.yamlパスを省略した場合は `TrackList\ECC{num}\crosscheck.yaml` を自動で使う。解凍済み(`.vxx`が既に存在)や圧縮ファイル・フォルダが見つからない組み合わせは自動でスキップする。`--dry-run` を付けると実際には解凍せず対象一覧と件数だけ表示する。
 
 ## 3. その他の情報
 
 - **`src/` の実行ファイルについて**: `src\apply_PLcut.exe` や `Pickup_reference_track_for_each_track.exe` はこのリポジトリにも置いてあるが、`do_02`/`do_03` は実際にはこのマシン上の外部パス(`C:\Users\kasumi\source\repos\...\Release\...exe`)を直接呼んでいる箇所がある。ビルドを更新した場合は `src/` 配下のコピーも手動で更新する必要がある。
 - **`github_repository_memo.txt`**: `src/` の各exeがどのGitHubリポジトリ(`MuonAnalysis`, `E71a_analysis_kasumi_local` など)のビルド物かをまとめたメモ。ビルド元を追いたいときに参照する。
 - **`Pred\memo.txt`**: ECCごとの water/iron イベント数の集計メモ。
+- **`TrackList\ECC{num}_merged\`(ECC1〜9)**: `TrackList\ECC{num}\crosscheck.yaml`(各エントリの detailed 版。RawIDのみの項目には `Track_small`/`Zone_small` を併記)を参照し、同ディレクトリの `PL???.yaml` 中で `RawID` のみ指定されていた項目に `Track`(`Track_small` の値)を追記、`Zone` が未設定の項目にはさらに `Zone`(`Zone_small` の値)も追記したうえで、元の `RawID:` 行を `#RawID:` としてコメントアウトしたもの。元々 `Track` を持つ項目は変更していない。マッチングは `SaveTo`/`RawID` が一致することを都度確認しながら、Plateごとに `crosscheck.yaml` と `PL???.yaml` を出現順で対応付けて行った(ファイル名のアルファベット順の連結がそのまま `crosscheck.yaml` の並びと一致している)。元の `TrackList\ECC{num}\` 側は変更していない。
+  - 対象外にしたファイル(命名が `PL\d{3}\.yaml` と一致しない、元データ側の重複/下書きファイル): `ECC2\PL050 - コピー.yaml`(`PL050.yaml` の完全な重複)、`ECC3\PL050_2.yaml`(`PL050.yaml` の一部エントリを手動編集した下書き)。
+  - `ECC4` の `PL062`/`PL063`/`PL064.yaml` には同じ `SaveTo` を持つエントリが2件ずつ存在する(元データ側の重複)が、`crosscheck.yaml` 側にも同じ順序で対になる重複エントリがあるため、出現順の対応付けで正しく処理できている。
 - **`Log/`**: `do_04` で生成した `.tex`(`SubFiles/` 以下)を取り込んでコンパイルした、チェックシート本体(`ManualCheckLog_v1〜v3.tex`)とそのPDF(`PDF/`)。`tikz-feynhand` 関連ファイルは飛跡図を描くための外部LaTeXパッケージ。
 - 本リポジトリは GitHub の `KasumiAyaka/OfflineManualCheck` にpushされている(オフライン環境用に、大容量データを含まないファイル群だけを取り出したもの)。
