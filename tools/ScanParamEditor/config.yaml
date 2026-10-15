@@ -1,0 +1,84 @@
+# ScanParamEditor 設定ファイル
+#
+# このファイルは exe と同じフォルダに置いてください。
+# PCごとにパスや選択肢の内容が異なる場合は、このファイルだけを書き換えれば
+# exe 本体(scan_param_editor.exe)はそのまま使えます。
+#
+# targets: 書き換え対象の ninja_e71a*.yaml を一覧で指定する。
+#   name: メニューに表示する名前
+#   path: 実際のファイルパス(バックスラッシュはそのまま1本で書いてよい)
+#   defaults: (省略可) 「デフォルトに戻す」で一括設定する既定値。
+#             指定する場合は ThrBinary / ScanArea / ThickOfLayer を全て書く。
+#             省略した target では「デフォルトに戻す」は使えない(個別選択のみ)。
+#
+# thrbinary_choices: ThrBinary の変更をスキャン中に起きた症状と結び付けて選べるようにする一覧。
+#   name: メニューに表示する名前(症状とその対応をセットで書く)
+#   operation: "delta"(現在値からの相対変更) または "set"(値を直接指定)
+#   value: delta なら加減算する量(下げるなら負の値)、set なら設定したい値
+#
+# scanarea_choices: ScanArea の変更を選べるようにする一覧。
+#   name: メニューに表示する名前
+#   ScanArea: [ [x1, y1], [x2, y2], ... ] の形式(個数は可変)
+#
+# thickoflayer_choices: ThickOfLayer の変更を選べるようにする一覧。
+#   name: メニューに表示する名前
+#   operation: "delta"(現在値からの相対変更) または "set"(値を直接指定)
+#   value: delta なら加減算する量、set なら設定したい値(例: 70.0 / 80.0)
+#
+# backup_dir: (省略可) 書き換え前のバックアップをまとめて置くフォルダ。
+#   相対パスで書くと、このconfig.yamlがあるフォルダからの相対位置になる。
+#   省略した場合は、従来どおり対象ファイルと同じフォルダに
+#   <ファイル名>.bak_YYYYMMDD_HHMMSS として保存される。
+#   backup_dir にまとめる場合、同じファイル名(例: FTS/UTS 両方が ninja_e71a.yaml)
+#   が混ざっても区別できるよう、親フォルダ名が自動でファイル名の先頭に付く
+#   (例: FTS_ninja_e71a.yaml.bak_20261013_120000)。
+#
+# 実行時は対象ファイルを選んだあと、ThrBinary → ScanArea → ThickOfLayer の順に
+# それぞれ別々に選べる(どれも「変更しない」を選べば、その項目は書き換えない)。
+# defaults を指定した target では、個別に選ぶ代わりに「デフォルトに戻す」を
+# 1回選ぶだけで ThrBinary/ScanArea/ThickOfLayer を全て既定値に戻せる。
+
+targets:
+  - name: FTS (ninja_e71a.yaml)
+    path: K:\NINJA\E71a\ManualCheck\ScanData\ScamParam\FTS\ninja_e71a.yaml
+    defaults:
+      ThrBinary: 16
+      ScanArea: [[30, 25], [65, 75], [100, 25]]
+      ThickOfLayer: 70.0
+  - name: UTS (ninja_e71a.yaml)
+    path: K:\NINJA\E71a\ManualCheck\ScanData\ScamParam\UTS\ninja_e71a.yaml
+    defaults:
+      ThrBinary: 16
+      ScanArea: [[30, 25], [65, 75], [100, 25]]
+      ThickOfLayer: 70.0
+
+thrbinary_choices:
+  - name: "499999 tracks detectedと出力された → ThrBinaryを下げる"
+    operation: delta
+    value: -1
+  - name: "トラックがほとんど検出されない → ThrBinaryを上げる"
+    operation: delta
+    value: 1
+  - name: "通常値(16)に戻す"
+    operation: set
+    value: 16
+  - name: "noisy_film用の値(18)にする"
+    operation: set
+    value: 18
+
+scanarea_choices:
+  - name: "通常のScanArea"
+    ScanArea: [[30, 25], [65, 75], [100, 25]]
+  - name: "diff_scan_area(UTSの別領域パターン)"
+    ScanArea: [[30, 25], [45, 55], [60, 25]]
+
+thickoflayer_choices:
+  - name: "通常値(70.0)に戻す"
+    operation: set
+    value: 70.0
+  - name: "PL098用の値(80.0)にする"
+    operation: set
+    value: 80.0
+
+# バックアップをまとめて置きたい場合はここを指定する(省略すると対象ファイルと同じフォルダに保存)。
+# backup_dir: K:\NINJA\E71a\ManualCheck\tools\ScanParamEditor\backups

@@ -1,0 +1,9 @@
+# PyInstaller のビルド成果物(ビルドするPCで再生成されるため追跡しない)
+build/
+dist/
+__pycache__/
+*.spec
+
+# 各PCでの実デプロイ用フォルダ(そのPC専用に編集された config.yaml やショートカットを含む)
+FTS/
+UTS/
