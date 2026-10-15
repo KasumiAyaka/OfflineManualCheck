@@ -1,6 +1,5 @@
-# PyInstaller のビルド成果物(ビルドするPCで再生成されるため追跡しない)
+# PyInstaller の中間生成物(ビルドするPCで再生成されるため追跡しない。dist/*.exe は配布物として追跡する)
 build/
-dist/
 __pycache__/
 *.spec
 
